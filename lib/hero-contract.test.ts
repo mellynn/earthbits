@@ -3,7 +3,10 @@ import test from "node:test";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { HERO_PARALLAX, heroParallaxTransform } from "./hero-parallax.ts";
+import {
+  HERO_PARALLAX,
+  heroParallaxTransform,
+} from "./hero-parallax.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (rel: string) => readFileSync(join(root, rel), "utf8");
@@ -18,7 +21,6 @@ test("Hero is one CSS-responsive tree (no Mobile/Desktop remount)", () => {
   assert.equal(src.includes("useSyncExternalStore"), false);
   assert.match(src, /HeroParallaxScene/);
   assert.match(src, /layer="hero-block"/);
-  assert.match(src, /data-hero-slot=\{name\}/);
   assert.match(src, /name="left-image"/);
   assert.match(src, /name="middle-image"/);
   assert.match(src, /name="hero-auto-video"/);
@@ -61,25 +63,47 @@ test("Parallax scene uses one scroll listener and skips small viewports", () => 
   assert.match(src, /heroParallaxTransform/);
 });
 
-test("live desktop text rate at scrollY 100 matches measured translate3d", () => {
-  assert.equal(
-    heroParallaxTransform(100, HERO_PARALLAX.block),
-    "translate3d(0, 12.4px, 8.9px)",
-  );
-  assert.equal("left" in HERO_PARALLAX, false);
-  assert.equal("middle" in HERO_PARALLAX, false);
-  assert.equal("video" in HERO_PARALLAX, false);
+test("live desktop transforms stay identity through scrollY 100", () => {
+  for (const rate of Object.values(HERO_PARALLAX)) {
+    assert.equal(heroParallaxTransform(0, rate), "none");
+    assert.equal(heroParallaxTransform(100, rate), "none");
+  }
 });
 
-test("desktop hero parallax targets title/role only, not frames", () => {
+test("live desktop rates at scrollY 300 match measured translate3d", () => {
+  assert.equal(
+    heroParallaxTransform(300, HERO_PARALLAX.block),
+    "translate3d(0, 59.0px, 42.0px)",
+  );
+  assert.equal(
+    heroParallaxTransform(300, HERO_PARALLAX.left),
+    "translate3d(0, -25.0px, 25.0px)",
+  );
+  assert.equal(
+    heroParallaxTransform(300, HERO_PARALLAX.middle),
+    "translate3d(0, -42.0px, 25.0px)",
+  );
+  assert.equal(
+    heroParallaxTransform(300, HERO_PARALLAX.video),
+    "translate3d(0, -42.0px, 42.0px)",
+  );
+  assert.ok(HERO_PARALLAX.block.y > 0);
+  assert.ok(HERO_PARALLAX.left.y < 0);
+  assert.ok(HERO_PARALLAX.middle.y < 0);
+  assert.ok(HERO_PARALLAX.video.y < 0);
+});
+
+test("desktop hero wires text-vs-cards layers inside a 76vw wrap", () => {
   const src = read("components/Hero.tsx");
   assert.match(src, /HERO_PARALLAX\.block/);
-  assert.equal(src.includes("HERO_PARALLAX.left"), false);
-  assert.equal(src.includes("HERO_PARALLAX.middle"), false);
-  assert.equal(src.includes("HERO_PARALLAX.video"), false);
-  assert.equal((src.match(/<ParallaxLayer/g) || []).length, 1);
+  assert.match(src, /HERO_PARALLAX\.left/);
+  assert.match(src, /HERO_PARALLAX\.middle/);
+  assert.match(src, /HERO_PARALLAX\.video/);
+  assert.equal((src.match(/<ParallaxLayer/g) || []).length, 2);
+  assert.equal((src.match(/<HeroCard/g) || []).length, 3);
+  assert.match(src, /md:w-\[76vw\]/);
+  assert.match(src, /md:w-\[44\.79vw\]/);
   assert.match(src, /text-accent/);
-  assert.match(src, /max-w-6xl/);
   assert.equal(src.includes("8.5rem"), false);
   assert.equal(src.includes("left-[2vw]"), false);
   assert.equal(src.includes("right-[2vw]"), false);
@@ -99,7 +123,6 @@ test("one video slot and one parallax scene (no dual-mount)", () => {
   assert.equal((hero.match(/<HeroParallaxScene/g) || []).length, 1);
   assert.equal((hero.match(/name="hero-auto-video"/g) || []).length, 1);
   assert.equal((hero.match(/<MediaFrame/g) || []).length, 1);
-  assert.equal((hero.match(/<HeroCard/g) || []).length, 3);
   assert.equal((hero.match(/<HeroVideo/g) || []).length, 0);
   const video = read("components/HeroVideo.tsx");
   assert.equal((video.match(/^\s*<video\b/gm) || []).length, 1);
