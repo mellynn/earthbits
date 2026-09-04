@@ -1,0 +1,34 @@
+{
+  "name": "earthbits",
+  "brand": "Earthbits",
+  "title": "Earthbits • New Media Artist",
+  "role": "Digital artist and technologist",
+  "tagline": "Exploring the intersection of nature and technology",
+  "email": "helloearthbits@gmail.com",
+  "url": "https://www.earthbits.xyz",
+  "socials": {
+    "instagram": {
+      "label": "Instagram",
+      "handle": "earthbits__",
+      "url": "https://www.instagram.com/earthbits__/"
+    },
+    "twitter": {
+      "label": "Twitter / X",
+      "handle": "earthbits__",
+      "url": "https://x.com/earthbits__"
+    }
+  },
+  "about": [
+    "Earthbits is a multi-disciplinary artist working in a wide range of media such as 3D modeling, animation, and sound. Her work emphasizes our ability to co-create with the natural world. Through immersive animated works, she invites viewers into conversation with the environment, offering a unique perspective on the intersection of art, technology, and nature.",
+    "She uses emerging technologies to investigate new ways to be in connection with our surroundings. Recent works include creating 3D models of local flora, animating them, and co-creating music with plants. The works are projected on surfaces and in virtual spaces. With time spent in nature integral to her process, the possibility emerges to embrace the creative potential of our natural surroundings."
+  ],
+  "exhibits": [
+    "NumberFive • AustinNewArt, Austin TX, June 2024",
+    "Art at the Edge • Edge City, Healdsburg CA, June 2024",
+    "Optimism WeLoveTheArt Contest • winner, February 2024",
+    "Playful Perceptions • Austin Studio Tour, Austin TX, November 2023",
+    "ACG Show, Austin TX, November 2023",
+    "Fabric London Commune Event, London UK, November 2023",
+    "Artdott Commune Opener, London UK, November 2023"
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="About (placeholder)">
+  <rect width="800" height="800" fill="#262323"/>
+  
+    <g fill="none" stroke="#e8bf96" stroke-width="1.5" transform="rotate(0.10564921547484118 395.20269330987503 463.99999999999994)">
+      <path d="M367.20269330987503 481.99999999999994 C 363.20269330987503 534, 427.20269330987503 534, 423.20269330987503 481.99999999999994 L 411.20269330987503 439.99999999999994 L 379.20269330987503 439.99999999999994 Z"/>
+      <path d="M395.20269330987503 439.99999999999994 V 375.99999999999994"/>
+      <ellipse cx="395.20269330987503" cy="355.99999999999994" rx="14" ry="32" transform="rotate(-20 395.20269330987503 355.99999999999994)"/>
+      <ellipse cx="395.20269330987503" cy="355.99999999999994" rx="14" ry="32" transform="rotate(20 395.20269330987503 355.99999999999994)"/>
+      <ellipse cx="395.20269330987503" cy="351.99999999999994" rx="12" ry="36"/>
+      <circle cx="395.20269330987503" cy="371.99999999999994" r="6" fill="#e8bf96" stroke="none"/>
+    </g>
+  
+  
+    <text x="28" y="36" fill="#e8bf96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" letter-spacing="3.2">PLACEHOLDER</text>
+    <text x="28" y="94%" fill="#f3eee8" font-family="ui-serif, Georgia, serif" font-size="18">About</text>
+    <text x="28" y="97.4%" fill="#b3aaa3" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">floral study</text>
+  
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Gardenscapes (placeholder)">
+  <rect width="800" height="800" fill="#262323"/>
+  
+    <ellipse cx="352" cy="384" rx="176" ry="208" fill="#6d7fa3" opacity="0.38"/>
+    <ellipse cx="480" cy="432" rx="160" ry="192" fill="#c27b6e" opacity="0.3"/>
+    <ellipse cx="400" cy="352" rx="128" ry="176" fill="#e8bf96" opacity="0.48"/>
+    <ellipse cx="400" cy="400" rx="72" ry="144" fill="none" stroke="#f3eee8" stroke-width="1" transform="rotate(25.002555685437983 400 400)"/>
+  
+  
+    <text x="28" y="36" fill="#e8bf96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" letter-spacing="3.2">PLACEHOLDER</text>
+    <text x="28" y="94%" fill="#f3eee8" font-family="ui-serif, Georgia, serif" font-size="18">Gardenscapes</text>
+    <text x="28" y="97.4%" fill="#b3aaa3" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">gallery 3</text>
+  
+</svg>

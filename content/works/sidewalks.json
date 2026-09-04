@@ -1,0 +1,49 @@
+{
+  "slug": "sidewalks",
+  "title": "Sidewalks",
+  "order": 2,
+  "client": "Personal",
+  "categories": ["3D", "Animation", "Music"],
+  "tools": [],
+  "cover": {
+    "alt": "Sidewalks cover",
+    "src": "/works/sidewalks/cover.svg",
+    "placeholder": true,
+    "motif": "pixel-field",
+    "seed": 7
+  },
+  "about": [
+    "Drawing inspiration from her first encounter with Texas wildflower season, Earthbits captures live photos of wildflowers blossoming in real-time and turns them into vibrant pixelated flower animations set to plant-generated music.",
+    "Through the creation process, she learns about the concept of \"plant blindness\", highlighting the often overlooked greenery and species that make up our everyday experiences. The works go beyond visual representation, incorporating music derived from the plants themselves, creating a multi-sensory exploration of the sidewalk next door.",
+    "Inspired by Texas' Lady Bird Johnson and her dedication to the preservation of wildflowers, this series is a reminder of our inherent need for the flowering earth, in contrast to our often indoor and screen-oriented modern lives."
+  ],
+  "vimeoUrl": "",
+  "process": [],
+  "final": {
+    "title": "Gallery",
+    "body": "Image slots for stills and process photographs. Replace the placeholders with original artwork.",
+    "media": [
+      {
+        "alt": "Sidewalks still 1",
+        "src": "/works/sidewalks/gallery-1.svg",
+        "placeholder": true,
+        "motif": "pixel-field",
+        "seed": 71
+      },
+      {
+        "alt": "Sidewalks still 2",
+        "src": "/works/sidewalks/gallery-2.svg",
+        "placeholder": true,
+        "motif": "pixel-field",
+        "seed": 72
+      },
+      {
+        "alt": "Sidewalks still 3",
+        "src": "/works/sidewalks/gallery-3.svg",
+        "placeholder": true,
+        "motif": "vase-study",
+        "seed": 73
+      }
+    ]
+  }
+}

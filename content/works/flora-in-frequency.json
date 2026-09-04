@@ -1,0 +1,201 @@
+{
+  "slug": "flora-in-frequency",
+  "title": "Flora in Frequency",
+  "order": 1,
+  "client": "Personal",
+  "categories": ["3D", "Animation", "Music"],
+  "tools": ["C4D", "After Effects", "Ableton"],
+  "cover": {
+    "alt": "Flora in Frequency cover",
+    "src": "/works/flora-in-frequency/cover.svg",
+    "placeholder": true,
+    "motif": "wireframe-bloom",
+    "seed": 1
+  },
+  "hero": [
+    {
+      "alt": "Digitized plant study",
+      "src": "/works/flora-in-frequency/hero-scan.svg",
+      "placeholder": true,
+      "motif": "scan-portrait",
+      "seed": 2,
+      "aspect": "portrait"
+    },
+    {
+      "alt": "Flower with wireframe overlay",
+      "src": "/works/flora-in-frequency/hero-wireframe.svg",
+      "placeholder": true,
+      "motif": "wireframe-bloom",
+      "seed": 3,
+      "aspect": "square"
+    },
+    {
+      "alt": "Floral still life",
+      "src": "/works/flora-in-frequency/hero-vase.svg",
+      "placeholder": true,
+      "motif": "vase-study",
+      "seed": 4,
+      "aspect": "square"
+    }
+  ],
+  "about": [
+    "Inspired by a desire to both connect more deeply with nature and explore new mediums, this project uses photogrammetry to breath new life into local flora creating 3D models that move and animate to the sound of music.",
+    "By turning the frequencies of plants into music and blending it with nature sounds and original vocals, a unique co-creation between plant and human emerges showing us that technology can enable us to commune with the natural world in novel and intimate ways."
+  ],
+  "processIntro": "Through a multi-step process that started out by seeking and selecting the most striking local flora, the flora was then scanned in 3D to capture its intricate form. Finally, the model was refined to bring out unique qualities of the flower to appear both realistic and otherworldly.",
+  "vimeoUrl": "",
+  "process": [
+    {
+      "title": "Identifying in-season and local flora",
+      "body": "Finding local and scannable local flora",
+      "layout": "thirds",
+      "media": [
+        {
+          "alt": "Local flora study — ranunculus",
+          "src": "/works/flora-in-frequency/process-flora-1.svg",
+          "placeholder": true,
+          "motif": "vase-study",
+          "seed": 11
+        },
+        {
+          "alt": "Local flora study — anemone",
+          "src": "/works/flora-in-frequency/process-flora-2.svg",
+          "placeholder": true,
+          "motif": "vase-study",
+          "seed": 12
+        },
+        {
+          "alt": "Local flora study — sweet pea",
+          "src": "/works/flora-in-frequency/process-flora-3.svg",
+          "placeholder": true,
+          "motif": "vase-study",
+          "seed": 13
+        }
+      ]
+    },
+    {
+      "title": "Creating 3D scans using photogrammetry",
+      "body": "Using the power of photogrammetry to create 3D models",
+      "layout": "thirds",
+      "media": [
+        {
+          "alt": "Photogrammetry scan interface 1",
+          "src": "/works/flora-in-frequency/process-scan-1.svg",
+          "placeholder": true,
+          "motif": "photogrammetry",
+          "seed": 21
+        },
+        {
+          "alt": "Photogrammetry scan interface 2",
+          "src": "/works/flora-in-frequency/process-scan-2.svg",
+          "placeholder": true,
+          "motif": "photogrammetry",
+          "seed": 22
+        },
+        {
+          "alt": "Photogrammetry scan interface 3",
+          "src": "/works/flora-in-frequency/process-scan-3.svg",
+          "placeholder": true,
+          "motif": "photogrammetry",
+          "seed": 23
+        }
+      ]
+    },
+    {
+      "title": "Adding effects and animation in 3D",
+      "body": "Animated the flower to dissolve and appear in time to the music created by the flower itself",
+      "layout": "wide",
+      "media": [
+        {
+          "alt": "3D workspace with digitized flower",
+          "src": "/works/flora-in-frequency/process-animation.svg",
+          "placeholder": true,
+          "motif": "wireframe-bloom",
+          "seed": 31,
+          "aspect": "wide"
+        }
+      ]
+    },
+    {
+      "title": "Exploring materials and lighting in 3D",
+      "body": "Capturing the realism of the organic flower structure directly from the physical world and blending with otherworldly materials and colors",
+      "layout": "thirds",
+      "media": [
+        {
+          "alt": "Material study 1",
+          "src": "/works/flora-in-frequency/process-material-1.svg",
+          "placeholder": true,
+          "motif": "glass-bloom",
+          "seed": 41
+        },
+        {
+          "alt": "Material study 2",
+          "src": "/works/flora-in-frequency/process-material-2.svg",
+          "placeholder": true,
+          "motif": "glass-bloom",
+          "seed": 42
+        },
+        {
+          "alt": "Material study 3",
+          "src": "/works/flora-in-frequency/process-material-3.svg",
+          "placeholder": true,
+          "motif": "glass-bloom",
+          "seed": 43
+        }
+      ]
+    },
+    {
+      "title": "Turning plant frequencies into music using a PlantWave device",
+      "body": "The music was crafted first by generating a bass line directly from the flora using a device called PlantWave which turns plant frequencies into music. With the bass line as inspiration, additional texture was layered on such as local nature sounds and original vocals inspired by the energy of the plants themselves.",
+      "layout": "pair",
+      "media": [
+        {
+          "alt": "Plant-generated music session",
+          "src": "/works/flora-in-frequency/process-sound-1.svg",
+          "placeholder": true,
+          "motif": "waveform",
+          "seed": 51,
+          "aspect": "wide"
+        },
+        {
+          "alt": "Studio desk with flora",
+          "src": "/works/flora-in-frequency/process-sound-2.svg",
+          "placeholder": true,
+          "motif": "desk-study",
+          "seed": 52,
+          "aspect": "wide"
+        }
+      ]
+    }
+  ],
+  "final": {
+    "title": "Final Piece",
+    "body": "The project culminates in a concept combining tech and nature to co-create in deep connection. With inspiration drawn from local flora, music generated by the plants themselves, 3D modeling, and surrealism, the possibility emerges to commune deeply with and embrace the creative potential of our natural surroundings.",
+    "media": [
+      {
+        "alt": "Final artwork — point cloud flora",
+        "src": "/works/flora-in-frequency/final-1.svg",
+        "placeholder": true,
+        "motif": "point-cloud",
+        "seed": 61,
+        "aspect": "portrait"
+      },
+      {
+        "alt": "Final artwork — chromatic field",
+        "src": "/works/flora-in-frequency/final-2.svg",
+        "placeholder": true,
+        "motif": "pixel-field",
+        "seed": 62,
+        "aspect": "portrait"
+      },
+      {
+        "alt": "Final artwork — digital flora",
+        "src": "/works/flora-in-frequency/final-3.svg",
+        "placeholder": true,
+        "motif": "glass-bloom",
+        "seed": 63,
+        "aspect": "portrait"
+      }
+    ]
+  }
+}

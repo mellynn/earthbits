@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="About (placeholder)">
+  <rect width="800" height="800" fill="#262323"/>
+  
+    <g transform="translate(-13.36866253131302 0)" opacity="0.45" fill="none" stroke="#6d7fa3" stroke-width="1.5">
+      <circle cx="400" cy="304" r="128"/>
+      <path d="M304 448.00000000000006 C 304 592, 496 592, 496 448.00000000000006"/>
+    </g>
+    <g transform="translate(13.36866253131302 4)" opacity="0.85" fill="none" stroke="#e8bf96" stroke-width="1.5">
+      <circle cx="400" cy="304" r="128"/>
+      <path d="M304 448.00000000000006 C 304 592, 496 592, 496 448.00000000000006"/>
+    </g>
+  
+  
+    <text x="28" y="36" fill="#e8bf96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" letter-spacing="3.2">PLACEHOLDER</text>
+    <text x="28" y="94%" fill="#f3eee8" font-family="ui-serif, Georgia, serif" font-size="18">About</text>
+    <text x="28" y="97.4%" fill="#b3aaa3" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11">portrait study</text>
+  
+</svg>
