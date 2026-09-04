@@ -104,7 +104,7 @@ To regenerate the SVG studies after deleting them:
 node scripts/generate-placeholders.mjs
 ```
 
-Vimeo: set `vimeoUrl` to a numeric ID, a public URL, or an unlisted `https://vimeo.com/123456789/abcdef` (hash) link.
+Vimeo: set `vimeoUrl` to a numeric ID, a public URL, or an unlisted `https://vimeo.com/123456789/abcdef` (hash) link. Leave it empty (or omit the field) to hide the player — visitors never see authoring instructions.
 
 ## Add a work
 
