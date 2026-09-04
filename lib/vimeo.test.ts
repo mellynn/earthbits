@@ -29,7 +29,7 @@ test("player url with h query", () => {
   assert.deepEqual(ref, { id: "123456789", hash: "deadbeef" });
 });
 
-test("empty stays null (placeholder slot)", () => {
+test("empty stays null (no visitor-facing player)", () => {
   assert.equal(parseVimeo(""), null);
   assert.equal(parseVimeoId(""), null);
 });

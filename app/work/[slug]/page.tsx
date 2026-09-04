@@ -6,6 +6,7 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { VimeoEmbed } from "@/components/VimeoEmbed";
 import { WorkGrid } from "@/components/WorkCard";
 import { getRelatedWorks, getWork, getWorks } from "@/lib/content";
+import { parseVimeo } from "@/lib/vimeo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -72,9 +73,11 @@ export default async function WorkDetailPage({ params }: PageProps) {
         ))}
       </section>
 
-      <section className="mt-16">
-        <VimeoEmbed url={work.vimeoUrl} />
-      </section>
+      {parseVimeo(work.vimeoUrl) ? (
+        <section className="mt-16">
+          <VimeoEmbed url={work.vimeoUrl} title={work.title} />
+        </section>
+      ) : null}
 
       {work.processIntro || (work.process && work.process.length > 0) ? (
         <section className="mt-20 space-y-16">
