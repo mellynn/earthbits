@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { parseVimeo, vimeoEmbedSrc } from "@/lib/vimeo";
 
 type VimeoEmbedProps = {
@@ -11,13 +11,15 @@ type VimeoEmbedProps = {
 
 /** Renders a Vimeo player once it nears the viewport, or nothing when invalid. */
 export function VimeoEmbed({ url, title }: VimeoEmbedProps) {
-  const parsed = parseVimeo(url);
+  const parsed = useMemo(() => parseVimeo(url), [url]);
+  const parsedId = parsed?.id;
+  const parsedHash = parsed?.hash;
   const boxRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const el = boxRef.current;
-    if (!el || !parsed || inView) return;
+    if (!el || !parsedId || inView) return;
 
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -29,7 +31,7 @@ export function VimeoEmbed({ url, title }: VimeoEmbedProps) {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [parsed, inView]);
+  }, [parsedId, parsedHash, inView]);
 
   if (!parsed) return null;
 

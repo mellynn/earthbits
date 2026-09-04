@@ -8,22 +8,44 @@ import { HERO_PARALLAX, heroParallaxTransform } from "./hero-parallax.ts";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (rel: string) => readFileSync(join(root, rel), "utf8");
 
-test("Hero mounts one layout tree (no css-hidden twin)", () => {
+test("Hero is one CSS-responsive tree (no Mobile/Desktop remount)", () => {
   const src = read("components/Hero.tsx");
   assert.equal(src.includes("md:hidden"), false);
   assert.equal(src.includes("hidden md:block"), false);
-  assert.match(src, /isDesktop \?/);
-  assert.match(src, /<DesktopHero/);
-  assert.match(src, /<MobileHero/);
+  assert.equal(src.includes("isDesktop"), false);
+  assert.equal(src.includes("MobileHero"), false);
+  assert.equal(src.includes("DesktopHero"), false);
+  assert.equal(src.includes("useSyncExternalStore"), false);
+  assert.match(src, /HeroParallaxScene/);
+  assert.match(src, /layer="hero-block"/);
+  assert.match(src, /layer="left-image"/);
+  assert.match(src, /layer="middle-image"/);
+  assert.match(src, /layer="hero-auto-video"/);
 });
 
-test("HeroVideo does not attach src when reduced-motion", () => {
+test("client Hero does not import work JSON / content loaders", () => {
+  const src = read("components/Hero.tsx");
+  assert.equal(src.includes("@/lib/content"), false);
+  assert.equal(src.includes("@/lib/site"), false);
+  assert.equal(src.includes("getWork"), false);
+  assert.equal(src.includes("getSite"), false);
+  assert.equal(src.includes("getWorks"), false);
+  assert.match(src, /export type HeroProps/);
+  const page = read("app/page.tsx");
+  assert.match(page, /getWork\("flora-in-frequency"\)/);
+  assert.match(page, /<Hero name=/);
+});
+
+test("HeroVideo skips src on reduced-motion and on mobile", () => {
   const src = read("components/HeroVideo.tsx");
   const mq = read("lib/match-media.ts");
   assert.match(mq, /prefers-reduced-motion: reduce/);
+  assert.match(mq, /min-width: 768px/);
   assert.match(src, /REDUCE_MOTION_MQ/);
-  assert.match(src, /if \(reduceMotion\) return null/);
+  assert.match(src, /DESKTOP_MQ/);
+  assert.match(src, /if \(reduceMotion \|\| !isDesktop\) return null/);
   assert.match(src, /=> true/);
+  assert.match(src, /=> false/);
 });
 
 test("Parallax scene uses one scroll listener and skips small viewports", () => {
@@ -59,26 +81,19 @@ test("live desktop rates at scrollY 100 match measured translate3d", () => {
 
 test("desktop hero wires live layer ids and opposing rates", () => {
   const src = read("components/Hero.tsx");
-  assert.match(src, /layer="hero-block"/);
-  assert.match(src, /layer="left-image"/);
-  assert.match(src, /layer="middle-image"/);
-  assert.match(src, /layer="hero-auto-video"/);
   assert.match(src, /HERO_PARALLAX\.block/);
   assert.match(src, /HERO_PARALLAX\.left/);
   assert.match(src, /HERO_PARALLAX\.middle/);
   assert.match(src, /HERO_PARALLAX\.video/);
-  assert.match(src, /<HeroParallaxScene/);
-  assert.equal(src.includes("<ParallaxLayer"), true);
-  const mobile = src.slice(src.indexOf("function MobileHero"), src.indexOf("function DesktopHero"));
-  assert.equal(mobile.includes("ParallaxLayer"), false);
-  assert.equal(mobile.includes("HeroParallaxScene"), false);
 });
 
-test("VimeoEmbed defers iframe until near viewport", () => {
+test("VimeoEmbed defers iframe and memoizes parse", () => {
   const src = read("components/VimeoEmbed.tsx");
   assert.match(src, /IntersectionObserver/);
   assert.match(src, /loading="lazy"/);
   assert.match(src, /inView \?/);
+  assert.match(src, /useMemo\(\(\) => parseVimeo\(url\), \[url\]\)/);
+  assert.match(src, /\[parsedId, parsedHash, inView\]/);
 });
 
 test("scene CSS uses perspective and preserve-3d", () => {

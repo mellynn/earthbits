@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import {
+  DESKTOP_MQ,
   REDUCE_MOTION_MQ,
   matchesMedia,
   subscribeMatchMedia,
@@ -13,8 +14,8 @@ type HeroVideoProps = {
 };
 
 /**
- * Muted autoplay loop. When prefers-reduced-motion is set (or unknown on the
- * server) the <video> is not mounted, so the mp4 is never requested.
+ * Muted autoplay loop. The <video> (and therefore the mp4) mounts only on
+ * desktop when motion is allowed. SSR and mobile stay poster-only.
  */
 export function HeroVideo({ src, poster }: HeroVideoProps) {
   const reduceMotion = useSyncExternalStore(
@@ -22,8 +23,13 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
     () => matchesMedia(REDUCE_MOTION_MQ),
     () => true,
   );
+  const isDesktop = useSyncExternalStore(
+    subscribeMatchMedia(DESKTOP_MQ),
+    () => matchesMedia(DESKTOP_MQ),
+    () => false,
+  );
 
-  if (reduceMotion) return null;
+  if (reduceMotion || !isDesktop) return null;
 
   return (
     <video
