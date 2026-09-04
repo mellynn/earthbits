@@ -21,8 +21,21 @@ html {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero-parallax {
+  .hero-parallax-layer,
+  .hero-parallax-media {
     will-change: transform;
+  }
+
+  .hero-parallax-media {
+    transform: scale(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallax-layer,
+  .hero-parallax-media {
+    transform: none !important;
+    will-change: auto;
   }
 }
 

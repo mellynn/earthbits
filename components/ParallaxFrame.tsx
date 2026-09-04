@@ -4,33 +4,57 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type ParallaxFrameProps = {
-  /** Multiply `window.scrollY` by this factor. Keep small (about 0.04–0.16). */
-  factor: number;
+  /** Signed pixel travel of the frame across the hero scroll (negative = opposite). */
+  shift: number;
+  /** Extra travel for the cropped media inside the frame. */
+  inner?: number;
   children: ReactNode;
   className?: string;
 };
 
-/** Subtle translateY parallax. No-ops when prefers-reduced-motion is set. */
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+/**
+ * Frame + inner-media parallax. Progress is based on the hero section's
+ * position in the viewport so motion stays visible while the hero is on screen.
+ * Honors prefers-reduced-motion (CSS + JS).
+ */
 export function ParallaxFrame({
-  factor,
+  shift,
+  inner = 0,
   children,
   className,
 }: ParallaxFrameProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const layerRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const layer = layerRef.current;
+    const media = mediaRef.current;
+    if (!layer) return;
 
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
 
     const update = () => {
       if (motion.matches) {
-        el.style.transform = "none";
+        layer.style.transform = "none";
+        if (media) media.style.transform = "none";
         return;
       }
-      el.style.transform = `translate3d(0, ${window.scrollY * factor}px, 0)`;
+
+      const root =
+        layer.closest("[data-hero-parallax]") ?? document.documentElement;
+      const rect = root.getBoundingClientRect();
+      const range = Math.max(rect.height * 0.7, window.innerHeight * 0.55);
+      const progress = clamp(-rect.top / range, 0, 1);
+
+      layer.style.transform = `translate3d(0, ${(progress * shift).toFixed(1)}px, 0)`;
+      if (media) {
+        media.style.transform = `translate3d(0, ${(progress * inner).toFixed(1)}px, 0) scale(1.2)`;
+      }
     };
 
     const onScroll = () => {
@@ -40,17 +64,23 @@ export function ParallaxFrame({
 
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     motion.addEventListener("change", update);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       motion.removeEventListener("change", update);
       cancelAnimationFrame(frame);
     };
-  }, [factor]);
+  }, [shift, inner]);
 
   return (
-    <div ref={ref} className={cn("hero-parallax", className)}>
-      {children}
+    <div ref={layerRef} className={cn("hero-parallax-layer", className)}>
+      <div className="overflow-hidden">
+        <div ref={mediaRef} className="hero-parallax-media origin-center">
+          {children}
+        </div>
+      </div>
     </div>
   );
 }
