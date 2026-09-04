@@ -55,7 +55,7 @@ Keep the same filename stem if you want (for example replace `cover.svg` usage w
 | --- | --- |
 | Portrait (left) | `public/works/flora-in-frequency/hero-scan.jpg` |
 | Portrait (right, looping video) | `hero-right.mp4` + poster `hero-right.jpg` |
-| Square (center) | `public/works/flora-in-frequency/hero-wireframe.jpg` |
+| Square (center) | `public/works/flora-in-frequency/hero-center.jpg` |
 
 **Flora in Frequency** — `content/works/flora-in-frequency.json`
 

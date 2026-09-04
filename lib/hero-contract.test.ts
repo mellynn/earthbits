@@ -96,6 +96,24 @@ test("VimeoEmbed defers iframe and memoizes parse", () => {
   assert.match(src, /\[parsedId, parsedHash, inView\]/);
 });
 
+test("one video slot and one parallax scene (no dual-mount)", () => {
+  const hero = read("components/Hero.tsx");
+  assert.equal((hero.match(/<HeroParallaxScene/g) || []).length, 1);
+  assert.equal((hero.match(/layer="hero-auto-video"/g) || []).length, 1);
+  assert.equal((hero.match(/<MediaFrame/g) || []).length, 3);
+  assert.equal((hero.match(/<HeroVideo/g) || []).length, 0);
+  const video = read("components/HeroVideo.tsx");
+  assert.equal((video.match(/^\s*<video\b/gm) || []).length, 1);
+  assert.match(video, /if \(reduceMotion \|\| !isDesktop\) return null/);
+});
+
+test("center hero still is not the leftover wireframe filename", () => {
+  const flora = read("content/works/flora-in-frequency.json");
+  assert.match(flora, /hero-center\.jpg/);
+  assert.equal(flora.includes("hero-wireframe.jpg"), false);
+  assert.match(flora, /Glass flower in a ceramic vase/);
+});
+
 test("scene CSS uses perspective and preserve-3d", () => {
   const css = read("app/globals.css");
   assert.match(css, /perspective:\s*1000px/);
