@@ -1,0 +1,29 @@
+{
+  "headline": "Shop",
+  "lede": "Works for sale will appear here as they become available. Nothing on this page is current inventory — listings are added from the shop data file when Mel is ready to sell a piece.",
+  "categories": [
+    {
+      "id": "physical",
+      "title": "Physical Art",
+      "empty": "No physical works listed yet."
+    },
+    {
+      "id": "digital",
+      "title": "Digital Art",
+      "empty": "No digital or NFT works listed yet."
+    }
+  ],
+  "externalShops": [
+    {
+      "label": "Etsy — Earthbits Studio",
+      "url": "https://www.etsy.com/shop/EarthbitsStudio",
+      "note": "External shop. Confirm current availability and prices on Etsy before purchasing."
+    },
+    {
+      "label": "Manifold — 2023 archive",
+      "url": "https://app.manifold.xyz/c/earthbits-ast2023",
+      "note": "External archive of a 2023 digital drop. Not current inventory, pricing, or an active sale."
+    }
+  ],
+  "items": []
+}

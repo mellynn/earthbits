@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #1f1d1d;
+  --color-paper: #f3eee8;
+  --color-muted: #b3aaa3;
+  --color-accent: #e8bf96;
+  --color-line: #3d3835;
+  --font-display: var(--font-cormorant), "Iowan Old Style", Palatino, Georgia, serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #1f1d1d;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='80' height='80' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: #e8bf96;
+  color: #1f1d1d;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  background: #e8bf96;
+  color: #1f1d1d;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.hero-grid {
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(8.333% - 1px),
+    rgb(232 191 150 / 0.08) calc(8.333% - 1px),
+    rgb(232 191 150 / 0.08) 8.333%
+  );
+  mask-image: linear-gradient(black 40%, transparent 95%);
+}
