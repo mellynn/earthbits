@@ -53,9 +53,9 @@ Keep the same filename stem if you want (for example replace `cover.svg` usage w
 
 | Slot | File |
 | --- | --- |
-| Portrait (left) | `public/works/flora-in-frequency/hero-scan.svg` → `/works/flora-in-frequency/hero-scan.svg` |
-| Square (right) | `public/works/flora-in-frequency/hero-wireframe.svg` |
-| Square (center) | `public/works/flora-in-frequency/hero-vase.svg` |
+| Portrait (left) | `public/works/flora-in-frequency/hero-scan.jpg` |
+| Portrait (right, looping video) | `hero-right.mp4` + poster `hero-right.jpg` |
+| Square (center) | `public/works/flora-in-frequency/hero-center.jpg` |
 
 **Flora in Frequency** — `content/works/flora-in-frequency.json`
 
@@ -104,7 +104,7 @@ To regenerate the SVG studies after deleting them:
 node scripts/generate-placeholders.mjs
 ```
 
-Vimeo: set `vimeoUrl` to a numeric ID, a public URL, or an unlisted `https://vimeo.com/123456789/abcdef` (hash) link. Leave it empty (or omit the field) to hide the player — visitors never see authoring instructions.
+Vimeo: set `vimeoUrls` to an array of numeric IDs, public URLs, or unlisted `https://vimeo.com/123456789/abcdef` (hash) links. A legacy single `vimeoUrl` still works. Leave the list empty (or omit both fields) to hide the player — visitors never see authoring instructions.
 
 `final.body` on a work is visitor-facing gallery copy. Leave it out until there is real text; do not put swap/README notes there.
 

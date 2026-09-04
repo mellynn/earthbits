@@ -14,6 +14,49 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.hero-desktop-only {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  [data-hero-parallax] {
+    overflow-x: clip;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-desktop-only {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .hero-parallax-scene {
+    perspective: 1000px;
+    perspective-origin: 50% 40%;
+    transform-style: preserve-3d;
+  }
+
+  .hero-parallax-layer {
+    transform-style: preserve-3d;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallax-layer {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
 body {
   background: #1f1d1d;
 }

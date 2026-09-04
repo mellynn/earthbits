@@ -4,15 +4,16 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { PillLink } from "@/components/PillLink";
 import { WorkGrid } from "@/components/WorkCard";
 import { getSite } from "@/lib/site";
-import { getWorks } from "@/lib/content";
+import { getWork, getWorks } from "@/lib/content";
 
 export default function Home() {
   const site = getSite();
   const works = getWorks();
+  const flora = getWork("flora-in-frequency");
 
   return (
     <main>
-      <Hero />
+      <Hero name={site.name} role={site.role} frames={flora?.hero ?? []} />
 
       <section className="mx-auto max-w-3xl px-6 py-24 md:px-10">
         <h2 className="text-center font-display text-6xl font-light tracking-tight md:text-7xl">

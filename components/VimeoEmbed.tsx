@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
 import { parseVimeo, vimeoEmbedSrc } from "@/lib/vimeo";
 
 type VimeoEmbedProps = {
@@ -6,20 +9,44 @@ type VimeoEmbedProps = {
   title?: string;
 };
 
-/** Renders a Vimeo player, or nothing when `url` is missing/invalid. */
+/** Renders a Vimeo player once it nears the viewport, or nothing when invalid. */
 export function VimeoEmbed({ url, title }: VimeoEmbedProps) {
-  const ref = parseVimeo(url);
-  if (!ref) return null;
+  const parsed = useMemo(() => parseVimeo(url), [url]);
+  const parsedId = parsed?.id;
+  const parsedHash = parsed?.hash;
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!el || !parsedId || inView) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setInView(true);
+        io.disconnect();
+      },
+      { rootMargin: "240px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [parsedId, parsedHash, inView]);
+
+  if (!parsed) return null;
 
   return (
-    <div className="aspect-video overflow-hidden bg-[#262323]">
-      <iframe
-        src={vimeoEmbedSrc(ref)}
-        title={title?.trim() ? `${title.trim()} video` : "Project video"}
-        className="h-full w-full"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowFullScreen
-      />
+    <div ref={boxRef} className="aspect-video overflow-hidden bg-[#262323]">
+      {inView ? (
+        <iframe
+          src={vimeoEmbedSrc(parsed)}
+          title={title?.trim() ? `${title.trim()} video` : "Project video"}
+          className="h-full w-full"
+          loading="lazy"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+        />
+      ) : null}
     </div>
   );
 }

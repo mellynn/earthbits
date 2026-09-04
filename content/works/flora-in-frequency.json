@@ -16,13 +16,14 @@
       "aspect": "portrait"
     },
     {
-      "alt": "Glass flower in a ceramic vase",
-      "src": "/works/flora-in-frequency/hero-wireframe.jpg",
-      "aspect": "square"
+      "alt": "3D workspace of a scanned flower with wireframe overlays",
+      "src": "/works/flora-in-frequency/hero-right.jpg",
+      "video": "/works/flora-in-frequency/hero-right.mp4",
+      "aspect": "portrait"
     },
     {
-      "alt": "3D workspace still of a scanned flower with wireframe overlays",
-      "src": "/works/flora-in-frequency/hero-vase.jpg",
+      "alt": "Glass flower in a ceramic vase",
+      "src": "/works/flora-in-frequency/hero-center.jpg",
       "aspect": "square"
     }
   ],
@@ -31,7 +32,7 @@
     "By turning the frequencies of plants into music and blending it with nature sounds and original vocals, a unique co-creation between plant and human emerges showing us that technology can enable us to commune with the natural world in novel and intimate ways."
   ],
   "processIntro": "Through a multi-step process that started out by seeking and selecting the most striking local flora, the flora was then scanned in 3D to capture its intricate form. Finally, the model was refined to bring out unique qualities of the flower to appear both realistic and otherworldly.",
-  "vimeoUrl": "",
+  "vimeoUrls": [],
   "process": [
     {
       "title": "Identifying in-season and local flora",

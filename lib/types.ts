@@ -19,6 +19,9 @@ export type MediaAspect = "square" | "portrait" | "wide";
 
 export type MediaSlot = {
   src?: string;
+  /** Looping muted video. `src` or `poster` is used as the poster still. */
+  video?: string;
+  poster?: string;
   alt: string;
   caption?: string;
   /** True while `src` still points at a labeled placeholder, not original artwork. */
@@ -54,6 +57,7 @@ export type Work = {
   about: string[];
   processIntro?: string;
   vimeoUrl?: string;
+  vimeoUrls?: string[];
   process?: ProcessStep[];
   final?: {
     title: string;
