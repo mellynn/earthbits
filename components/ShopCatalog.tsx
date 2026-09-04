@@ -1,6 +1,7 @@
 import { MediaFrame } from "@/components/MediaFrame";
 import { PillLink } from "@/components/PillLink";
-import { getShop, getSite, shopItemsByGroup } from "@/lib/content";
+import { getShop, shopItemsForCategory } from "@/lib/content";
+import { getSite } from "@/lib/site";
 import type { ShopItem } from "@/lib/types";
 
 function ItemCard({ item }: { item: ShopItem }) {
@@ -83,7 +84,6 @@ function CategoryColumn({
 export function ShopCatalog() {
   const shop = getShop();
   const site = getSite();
-  const grouped = shopItemsByGroup(shop.items);
 
   return (
     <div className="space-y-16">
@@ -93,7 +93,7 @@ export function ShopCatalog() {
             key={category.id}
             title={category.title}
             empty={category.empty}
-            items={category.id === "physical" ? grouped.physical : grouped.digital}
+            items={shopItemsForCategory(shop.items, category.id)}
           />
         ))}
       </div>
@@ -123,9 +123,7 @@ export function ShopCatalog() {
           ))}
         </ul>
         <div className="mt-10">
-          <PillLink href={`mailto:${site.email}`} external>
-            Inquire by email
-          </PillLink>
+          <PillLink href={`mailto:${site.email}`}>Inquire by email</PillLink>
         </div>
       </section>
     </div>

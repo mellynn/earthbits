@@ -21,10 +21,19 @@ export type MediaSlot = {
   src?: string;
   alt: string;
   caption?: string;
+  /** True while `src` still points at a labeled placeholder, not original artwork. */
+  placeholder?: boolean;
   motif?: PlaceholderMotif;
   seed?: number;
   aspect?: MediaAspect;
 };
+
+export const shopCategoryTypes = {
+  physical: ["physical"],
+  digital: ["nft", "other"],
+} as const satisfies Record<string, readonly ShopItemType[]>;
+
+export type ShopCategoryId = keyof typeof shopCategoryTypes;
 
 export type ProcessStep = {
   title: string;
@@ -96,7 +105,7 @@ export type SiteContent = {
 export type ShopContent = {
   headline: string;
   lede: string;
-  categories: { id: "physical" | "digital"; title: string; empty: string }[];
+  categories: { id: ShopCategoryId; title: string; empty: string }[];
   externalShops: ExternalShop[];
   items: ShopItem[];
 };

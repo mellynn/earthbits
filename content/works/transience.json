@@ -6,6 +6,8 @@
   "tools": [],
   "cover": {
     "alt": "Transience cover",
+    "src": "/works/transience/cover.svg",
+    "placeholder": true,
     "motif": "point-cloud",
     "seed": 8
   },
@@ -19,9 +21,30 @@
     "title": "Gallery",
     "body": "Image slots for point-cloud stills. Replace the placeholders with original artwork.",
     "media": [
-      { "alt": "Transience still 1", "motif": "point-cloud", "seed": 81, "aspect": "portrait" },
-      { "alt": "Transience still 2", "motif": "point-cloud", "seed": 82, "aspect": "portrait" },
-      { "alt": "Transience still 3", "motif": "scan-portrait", "seed": 83, "aspect": "portrait" }
+      {
+        "alt": "Transience still 1",
+        "src": "/works/transience/gallery-1.svg",
+        "placeholder": true,
+        "motif": "point-cloud",
+        "seed": 81,
+        "aspect": "portrait"
+      },
+      {
+        "alt": "Transience still 2",
+        "src": "/works/transience/gallery-2.svg",
+        "placeholder": true,
+        "motif": "point-cloud",
+        "seed": 82,
+        "aspect": "portrait"
+      },
+      {
+        "alt": "Transience still 3",
+        "src": "/works/transience/gallery-3.svg",
+        "placeholder": true,
+        "motif": "scan-portrait",
+        "seed": 83,
+        "aspect": "portrait"
+      }
     ]
   }
 }

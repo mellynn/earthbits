@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArcMark, ArrowMark, RaysMark, StarMark } from "@/components/Marks";
 import { MediaFrame } from "@/components/MediaFrame";
-import { getSite, getWork } from "@/lib/content";
+import { getSite } from "@/lib/site";
+import { getWork } from "@/lib/content";
 
 export function Hero() {
   const site = getSite();

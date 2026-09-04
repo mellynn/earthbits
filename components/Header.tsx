@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
-import { getSite } from "@/lib/content";
 
 const links = [
   { href: "/", label: "Home" },
@@ -18,19 +17,18 @@ function isActive(href: string, pathname: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function Header() {
+export function Header({ brand }: { brand: string }) {
   const pathname = usePathname();
-  const site = getSite();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/60 bg-ink/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line/60 bg-ink/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
         <Link
           href="/"
           className="text-[11px] font-medium uppercase tracking-[0.28em] text-paper"
         >
-          {site.brand}
+          {brand}
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {links.map((link) => {

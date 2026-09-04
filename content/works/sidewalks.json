@@ -7,6 +7,8 @@
   "tools": [],
   "cover": {
     "alt": "Sidewalks cover",
+    "src": "/works/sidewalks/cover.svg",
+    "placeholder": true,
     "motif": "pixel-field",
     "seed": 7
   },
@@ -21,9 +23,27 @@
     "title": "Gallery",
     "body": "Image slots for stills and process photographs. Replace the placeholders with original artwork.",
     "media": [
-      { "alt": "Sidewalks still 1", "motif": "pixel-field", "seed": 71 },
-      { "alt": "Sidewalks still 2", "motif": "pixel-field", "seed": 72 },
-      { "alt": "Sidewalks still 3", "motif": "vase-study", "seed": 73 }
+      {
+        "alt": "Sidewalks still 1",
+        "src": "/works/sidewalks/gallery-1.svg",
+        "placeholder": true,
+        "motif": "pixel-field",
+        "seed": 71
+      },
+      {
+        "alt": "Sidewalks still 2",
+        "src": "/works/sidewalks/gallery-2.svg",
+        "placeholder": true,
+        "motif": "pixel-field",
+        "seed": 72
+      },
+      {
+        "alt": "Sidewalks still 3",
+        "src": "/works/sidewalks/gallery-3.svg",
+        "placeholder": true,
+        "motif": "vase-study",
+        "seed": 73
+      }
     ]
   }
 }

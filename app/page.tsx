@@ -3,7 +3,8 @@ import { Hero } from "@/components/Hero";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PillLink } from "@/components/PillLink";
 import { WorkGrid } from "@/components/WorkCard";
-import { getSite, getWorks } from "@/lib/content";
+import { getSite } from "@/lib/site";
+import { getWorks } from "@/lib/content";
 
 export default function Home() {
   const site = getSite();
@@ -22,9 +23,27 @@ export default function Home() {
           <ExhibitsList />
         </div>
         <div className="mt-16 grid grid-cols-3 gap-3 md:gap-5">
-          <MediaFrame slot={{ alt: "Floral study", motif: "vase-study", seed: 101 }} />
-          <MediaFrame slot={{ alt: "Portrait study", motif: "glitch-portrait", seed: 102 }} />
-          <MediaFrame slot={{ alt: "Gallery study", motif: "studio-wall", seed: 103 }} />
+          <MediaFrame
+            slot={{
+              alt: "Floral study",
+              src: "/works/about/floral.svg",
+              placeholder: true,
+            }}
+          />
+          <MediaFrame
+            slot={{
+              alt: "Portrait study",
+              src: "/works/about/portrait.svg",
+              placeholder: true,
+            }}
+          />
+          <MediaFrame
+            slot={{
+              alt: "Gallery study",
+              src: "/works/about/gallery.svg",
+              placeholder: true,
+            }}
+          />
         </div>
         <p className="mt-12 text-center text-sm text-muted">
           Check her out on{" "}

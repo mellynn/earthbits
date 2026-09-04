@@ -1,4 +1,4 @@
-import { getSite } from "@/lib/content";
+import { getSite } from "@/lib/site";
 
 export function AboutCopy({ className }: { className?: string }) {
   const site = getSite();

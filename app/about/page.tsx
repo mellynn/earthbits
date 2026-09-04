@@ -3,7 +3,7 @@ import { AboutCopy, ExhibitsList } from "@/components/AboutCopy";
 import { ContactForm } from "@/components/ContactForm";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PillLink } from "@/components/PillLink";
-import { getSite } from "@/lib/content";
+import { getSite } from "@/lib/site";
 
 const site = getSite();
 
@@ -29,9 +29,27 @@ export default function AboutPage() {
       </div>
 
       <div className="mt-16 grid grid-cols-3 gap-3 md:gap-5">
-        <MediaFrame slot={{ alt: "Floral study", motif: "vase-study", seed: 201 }} />
-        <MediaFrame slot={{ alt: "Portrait study", motif: "glitch-portrait", seed: 202 }} />
-        <MediaFrame slot={{ alt: "Gallery study", motif: "studio-wall", seed: 203 }} />
+        <MediaFrame
+          slot={{
+            alt: "Floral study",
+            src: "/works/about/floral.svg",
+            placeholder: true,
+          }}
+        />
+        <MediaFrame
+          slot={{
+            alt: "Portrait study",
+            src: "/works/about/portrait.svg",
+            placeholder: true,
+          }}
+        />
+        <MediaFrame
+          slot={{
+            alt: "Gallery study",
+            src: "/works/about/gallery.svg",
+            placeholder: true,
+          }}
+        />
       </div>
 
       <section id="contact" className="mt-24 scroll-mt-24 text-center">

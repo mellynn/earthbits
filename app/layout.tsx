@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { getSite } from "@/lib/content";
+import { getSite } from "@/lib/site";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Header />
+        <Header brand={site.brand} />
         <div id="main">{children}</div>
         <Footer />
       </body>

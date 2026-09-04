@@ -17,7 +17,8 @@
       "title": "Work title",
       "type": "nft",
       "description": "Short description of the piece.",
-      "image": "",
+      "image": "https://i.etsystatic.com/example.jpg",
+      "imageAlt": "Remote image hosts must be listed in next.config.ts images.remotePatterns",
       "externalUrl": "https://app.manifold.xyz/",
       "externalLabel": "View on Manifold",
       "price": ""
