@@ -6,35 +6,23 @@
   "categories": ["3D", "Animation", "Music"],
   "tools": ["C4D", "After Effects", "Ableton"],
   "cover": {
-    "alt": "Flora in Frequency cover",
-    "src": "/works/flora-in-frequency/cover.svg",
-    "placeholder": true,
-    "motif": "wireframe-bloom",
-    "seed": 1
+    "alt": "Flora in Frequency cover — iridescent glass flower",
+    "src": "/works/flora-in-frequency/cover.jpg"
   },
   "hero": [
     {
-      "alt": "Digitized plant study",
-      "src": "/works/flora-in-frequency/hero-scan.svg",
-      "placeholder": true,
-      "motif": "scan-portrait",
-      "seed": 2,
+      "alt": "Iridescent digitized flower against a twilight sky",
+      "src": "/works/flora-in-frequency/hero-scan.jpg",
       "aspect": "portrait"
     },
     {
-      "alt": "Flower with wireframe overlay",
-      "src": "/works/flora-in-frequency/hero-wireframe.svg",
-      "placeholder": true,
-      "motif": "wireframe-bloom",
-      "seed": 3,
+      "alt": "Glass flower in a ceramic vase",
+      "src": "/works/flora-in-frequency/hero-wireframe.jpg",
       "aspect": "square"
     },
     {
-      "alt": "Floral still life",
-      "src": "/works/flora-in-frequency/hero-vase.svg",
-      "placeholder": true,
-      "motif": "vase-study",
-      "seed": 4,
+      "alt": "3D workspace still of a scanned flower with wireframe overlays",
+      "src": "/works/flora-in-frequency/hero-vase.jpg",
       "aspect": "square"
     }
   ],
@@ -51,25 +39,16 @@
       "layout": "thirds",
       "media": [
         {
-          "alt": "Local flora study — ranunculus",
-          "src": "/works/flora-in-frequency/process-flora-1.svg",
-          "placeholder": true,
-          "motif": "vase-study",
-          "seed": 11
+          "alt": "Local flora study — mixed bouquet",
+          "src": "/works/flora-in-frequency/process-flora-1.jpg"
         },
         {
-          "alt": "Local flora study — anemone",
-          "src": "/works/flora-in-frequency/process-flora-2.svg",
-          "placeholder": true,
-          "motif": "vase-study",
-          "seed": 12
+          "alt": "Local flora study — white poppy in a glass vase",
+          "src": "/works/flora-in-frequency/process-flora-2.jpg"
         },
         {
           "alt": "Local flora study — sweet pea",
-          "src": "/works/flora-in-frequency/process-flora-3.svg",
-          "placeholder": true,
-          "motif": "vase-study",
-          "seed": 13
+          "src": "/works/flora-in-frequency/process-flora-3.jpg"
         }
       ]
     },
@@ -79,25 +58,16 @@
       "layout": "thirds",
       "media": [
         {
-          "alt": "Photogrammetry scan interface 1",
-          "src": "/works/flora-in-frequency/process-scan-1.svg",
-          "placeholder": true,
-          "motif": "photogrammetry",
-          "seed": 21
+          "alt": "Photogrammetry camera alignment around a scanned structure",
+          "src": "/works/flora-in-frequency/process-scan-1.jpg"
         },
         {
-          "alt": "Photogrammetry scan interface 2",
-          "src": "/works/flora-in-frequency/process-scan-2.svg",
-          "placeholder": true,
-          "motif": "photogrammetry",
-          "seed": 22
+          "alt": "ZBrush sculpt of a flower head",
+          "src": "/works/flora-in-frequency/process-scan-2.jpg"
         },
         {
-          "alt": "Photogrammetry scan interface 3",
-          "src": "/works/flora-in-frequency/process-scan-3.svg",
-          "placeholder": true,
-          "motif": "photogrammetry",
-          "seed": 23
+          "alt": "Rendered 3D flower model",
+          "src": "/works/flora-in-frequency/process-scan-3.jpg"
         }
       ]
     },
@@ -107,11 +77,8 @@
       "layout": "wide",
       "media": [
         {
-          "alt": "3D workspace with digitized flower",
-          "src": "/works/flora-in-frequency/process-animation.svg",
-          "placeholder": true,
-          "motif": "wireframe-bloom",
-          "seed": 31,
+          "alt": "3D workspace with digitized flower and bounding boxes",
+          "src": "/works/flora-in-frequency/process-animation.jpg",
           "aspect": "wide"
         }
       ]
@@ -122,25 +89,16 @@
       "layout": "thirds",
       "media": [
         {
-          "alt": "Material study 1",
-          "src": "/works/flora-in-frequency/process-material-1.svg",
-          "placeholder": true,
-          "motif": "glass-bloom",
-          "seed": 41
+          "alt": "Material study — naturalistic lighting",
+          "src": "/works/flora-in-frequency/process-material-1.jpg"
         },
         {
-          "alt": "Material study 2",
-          "src": "/works/flora-in-frequency/process-material-2.svg",
-          "placeholder": true,
-          "motif": "glass-bloom",
-          "seed": 42
+          "alt": "Material study — iridescent digital bloom",
+          "src": "/works/flora-in-frequency/process-material-2.jpg"
         },
         {
-          "alt": "Material study 3",
-          "src": "/works/flora-in-frequency/process-material-3.svg",
-          "placeholder": true,
-          "motif": "glass-bloom",
-          "seed": 43
+          "alt": "Material study — monochrome wireframe",
+          "src": "/works/flora-in-frequency/process-material-3.jpg"
         }
       ]
     },
@@ -150,19 +108,13 @@
       "layout": "pair",
       "media": [
         {
-          "alt": "Plant-generated music session",
-          "src": "/works/flora-in-frequency/process-sound-1.svg",
-          "placeholder": true,
-          "motif": "waveform",
-          "seed": 51,
+          "alt": "PlantWave session with Ableton Live",
+          "src": "/works/flora-in-frequency/process-sound-1.jpg",
           "aspect": "wide"
         },
         {
-          "alt": "Studio desk with flora",
-          "src": "/works/flora-in-frequency/process-sound-2.svg",
-          "placeholder": true,
-          "motif": "desk-study",
-          "seed": 52,
+          "alt": "Studio desk with flora and music software",
+          "src": "/works/flora-in-frequency/process-sound-2.jpg",
           "aspect": "wide"
         }
       ]
@@ -173,27 +125,18 @@
     "body": "The project culminates in a concept combining tech and nature to co-create in deep connection. With inspiration drawn from local flora, music generated by the plants themselves, 3D modeling, and surrealism, the possibility emerges to commune deeply with and embrace the creative potential of our natural surroundings.",
     "media": [
       {
-        "alt": "Final artwork — point cloud flora",
-        "src": "/works/flora-in-frequency/final-1.svg",
-        "placeholder": true,
-        "motif": "point-cloud",
-        "seed": 61,
+        "alt": "Final artwork — iridescent particle bloom",
+        "src": "/works/flora-in-frequency/final-1.jpg",
         "aspect": "portrait"
       },
       {
-        "alt": "Final artwork — chromatic field",
-        "src": "/works/flora-in-frequency/final-2.svg",
-        "placeholder": true,
-        "motif": "pixel-field",
-        "seed": 62,
+        "alt": "Final artwork — glass flower in a vase",
+        "src": "/works/flora-in-frequency/final-2.jpg",
         "aspect": "portrait"
       },
       {
-        "alt": "Final artwork — digital flora",
-        "src": "/works/flora-in-frequency/final-3.svg",
-        "placeholder": true,
-        "motif": "glass-bloom",
-        "seed": 63,
+        "alt": "Final artwork — refractive glass flora",
+        "src": "/works/flora-in-frequency/final-3.jpg",
         "aspect": "portrait"
       }
     ]

@@ -5,42 +5,30 @@
   "categories": ["3D", "Animation"],
   "tools": [],
   "cover": {
-    "alt": "Gardenscapes cover",
-    "src": "/works/gardenscapes/cover.svg",
-    "placeholder": true,
-    "motif": "lidar-land",
-    "seed": 9
+    "alt": "Gardenscapes cover — LiDAR landscape with scanline texture",
+    "src": "/works/gardenscapes/cover.jpg"
   },
   "about": [
     "This series explores the concept of technology and nature as co-creators in the artistic process.",
     "Specifically, LiDAR scans and its inherent limitations (ie. the inability to capture fine details) becomes a strength, pushing the focus towards sweeping landscapes. Additionally, vibrant color contrasts that are taken from the scans are intensified through digital manipulation, giving birth to unique constellations. The artworks are altered to be abstract and mirror the ethereal qualities of clouds and shifting sunsets that are naturally occurring phenomenon found in weather patterns.",
     "The output challenges us to consider the potential of technology and flora to be collaborators in the art-making process, and to ponder the dialogues that such partnerships can generate."
   ],
-  "vimeoUrl": "",
+  "vimeoUrl": "https://vimeo.com/848177807",
   "process": [],
   "final": {
     "title": "Gallery",
     "media": [
       {
         "alt": "Gardenscapes still 1",
-        "src": "/works/gardenscapes/gallery-1.svg",
-        "placeholder": true,
-        "motif": "lidar-land",
-        "seed": 91
+        "src": "/works/gardenscapes/gallery-1.jpg"
       },
       {
         "alt": "Gardenscapes still 2",
-        "src": "/works/gardenscapes/gallery-2.svg",
-        "placeholder": true,
-        "motif": "lidar-land",
-        "seed": 92
+        "src": "/works/gardenscapes/gallery-2.jpg"
       },
       {
         "alt": "Gardenscapes still 3",
-        "src": "/works/gardenscapes/gallery-3.svg",
-        "placeholder": true,
-        "motif": "glass-bloom",
-        "seed": 93
+        "src": "/works/gardenscapes/gallery-3.jpg"
       }
     ]
   }

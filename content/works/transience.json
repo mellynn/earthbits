@@ -5,43 +5,31 @@
   "categories": ["3D", "Animation"],
   "tools": [],
   "cover": {
-    "alt": "Transience cover",
-    "src": "/works/transience/cover.svg",
-    "placeholder": true,
-    "motif": "point-cloud",
-    "seed": 8
+    "alt": "Transience cover — point-cloud protea",
+    "src": "/works/transience/cover.jpg"
   },
   "about": [
     "Exploring South Africa's rich botanical landscapes through the lens of advanced photogrammetry, this series offers a meditation on transience and beauty.",
     "3D point clouds are generated off of real-world flora in the environment, capturing a precise moment in the life of the flower. As the physical form of the flowers decay and return to earth, so too do the digital points scatter. The resulting artworks serve as a homage to the fleeting nature of life – a snapshot of transient existence."
   ],
-  "vimeoUrl": "",
+  "vimeoUrl": "https://vimeo.com/848178144/7d9b4b9d48",
   "process": [],
   "final": {
     "title": "Gallery",
     "media": [
       {
         "alt": "Transience still 1",
-        "src": "/works/transience/gallery-1.svg",
-        "placeholder": true,
-        "motif": "point-cloud",
-        "seed": 81,
+        "src": "/works/transience/gallery-1.jpg",
         "aspect": "portrait"
       },
       {
         "alt": "Transience still 2",
-        "src": "/works/transience/gallery-2.svg",
-        "placeholder": true,
-        "motif": "point-cloud",
-        "seed": 82,
+        "src": "/works/transience/gallery-2.jpg",
         "aspect": "portrait"
       },
       {
         "alt": "Transience still 3",
-        "src": "/works/transience/gallery-3.svg",
-        "placeholder": true,
-        "motif": "scan-portrait",
-        "seed": 83,
+        "src": "/works/transience/gallery-3.jpg",
         "aspect": "portrait"
       }
     ]

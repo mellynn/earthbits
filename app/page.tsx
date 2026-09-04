@@ -26,22 +26,19 @@ export default function Home() {
           <MediaFrame
             slot={{
               alt: "Floral study",
-              src: "/works/about/floral.svg",
-              placeholder: true,
+              src: "/works/about/floral.jpg",
             }}
           />
           <MediaFrame
             slot={{
               alt: "Portrait study",
-              src: "/works/about/portrait.svg",
-              placeholder: true,
+              src: "/works/about/portrait.jpg",
             }}
           />
           <MediaFrame
             slot={{
               alt: "Gallery study",
-              src: "/works/about/gallery.svg",
-              placeholder: true,
+              src: "/works/about/gallery.jpg",
             }}
           />
         </div>
