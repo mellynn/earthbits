@@ -20,20 +20,28 @@ html {
   }
 }
 
+@media (max-width: 767px) {
+  [data-hero-parallax] {
+    overflow-x: clip;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
-  .hero-parallax-layer,
-  .hero-parallax-media {
-    will-change: transform;
+  .hero-parallax-scene {
+    perspective: 1000px;
+    perspective-origin: 50% 40%;
+    transform-style: preserve-3d;
   }
 
-  .hero-parallax-media {
-    transform: scale(1.2);
+  .hero-parallax-layer {
+    transform-style: preserve-3d;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-parallax-layer,
-  .hero-parallax-media {
+  .hero-parallax-layer {
     transform: none !important;
     will-change: auto;
   }
