@@ -16,6 +16,7 @@ type HeroParallaxSceneProps = {
 /**
  * One scroll listener for every [data-hero-layer] child. Desktop + motion
  * only — matches earthbits.xyz (mobile and reduced-motion are no-ops).
+ * Intended for the title/role block so type moves vs the framed background.
  */
 export function HeroParallaxScene({
   children,

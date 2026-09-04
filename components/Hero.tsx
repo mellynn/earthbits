@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowMark, RaysMark, StarMark } from "@/components/Marks";
 import { MediaFrame } from "@/components/MediaFrame";
@@ -32,7 +33,7 @@ function FloraLink({ className }: { className?: string }) {
 function RoleLine({ role, className }: { role: string; className?: string }) {
   const parts = role.split(/(artist)/i);
   return (
-    <p className={cn("text-[15px] leading-snug text-paper", className)}>
+    <p className={cn("text-[15px] leading-snug text-paper md:text-[1.15rem]", className)}>
       {parts.map((part, index) =>
         /artist/i.test(part) ? (
           <em key={`${part}-${index}`} className="font-display text-accent">
@@ -56,80 +57,94 @@ function Tagline({ className }: { className?: string }) {
   );
 }
 
+function HeroCard({
+  slot,
+  name,
+  aspect,
+  sizes,
+  className,
+  children,
+}: {
+  slot: MediaSlot;
+  name: "left-image" | "middle-image" | "hero-auto-video";
+  aspect: NonNullable<MediaSlot["aspect"]>;
+  sizes: string;
+  className?: string;
+  children?: ReactNode;
+}) {
+  return (
+    <div data-hero-slot={name} className={className}>
+      {children}
+      <MediaFrame slot={{ ...slot, aspect }} sizes={sizes} />
+    </div>
+  );
+}
+
 /**
  * One responsive tree. CSS switches mobile stack vs desktop collage —
  * no matchMedia remount, so wide viewports do not CLS from Mobile→Desktop.
+ *
+ * Desktop parallax is text-only (title + role vs the framed scene).
  */
 export function Hero({ name, role, frames }: HeroProps) {
   return (
     <section data-hero-parallax className="relative">
-      <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
-      <HeroParallaxScene className="relative flex flex-col overflow-x-clip px-6 pb-16 pt-12 md:block md:min-h-[min(72vw,52rem)] md:overflow-visible md:px-[4vw] md:pb-[8vw] md:pt-6">
+      <div
+        className="hero-grid pointer-events-none absolute inset-x-0 top-0 mx-auto h-full max-w-6xl"
+        aria-hidden="true"
+      />
+      <HeroParallaxScene className="relative mx-auto flex max-w-6xl flex-col overflow-x-clip px-6 pb-16 pt-12 md:grid md:min-h-[38rem] md:grid-cols-12 md:items-start md:gap-x-8 md:gap-y-6 md:overflow-visible md:px-10 md:pb-20 md:pt-10">
         <ParallaxLayer
           layer="hero-block"
           rate={HERO_PARALLAX.block}
-          className="relative z-20 text-center md:mx-auto md:w-[min(44.79vw,40rem)] md:pt-[8vw]"
+          className="relative z-20 text-center md:col-span-6 md:col-start-4 md:row-start-1 md:pt-8"
         >
-          <StarMark className="hero-desktop-only absolute left-0 top-8 h-4 w-4" />
-          <h1 className="font-display text-[3.15rem] font-light leading-[0.9] tracking-tight text-paper md:text-[clamp(3.75rem,8vw,8.5rem)]">
+          <StarMark className="hero-desktop-only absolute left-0 top-6 h-4 w-4" />
+          <h1 className="font-display text-[3.15rem] font-light leading-[0.9] tracking-tight text-paper md:text-[clamp(3.25rem,5.6vw,6.25rem)]">
             {name}
           </h1>
-          <RoleLine
-            role={role}
-            className="mt-5 md:mx-auto md:mt-8 md:max-w-[17.4vw]"
-          />
+          <RoleLine role={role} className="mt-5 md:mx-auto md:mt-6 md:max-w-[16rem]" />
         </ParallaxLayer>
 
         {frames[0] ? (
-          <ParallaxLayer
-            layer="left-image"
-            rate={HERO_PARALLAX.left}
-            className="mx-auto mt-10 h-[400px] w-full max-w-[345px] md:absolute md:left-[2vw] md:top-[18vw] md:z-10 md:mt-0 md:h-[23.48vw] md:w-[15.625vw] md:max-w-none"
-          >
-            <MediaFrame
-              slot={{ ...frames[0], aspect: "portrait" }}
-              fill
-              sizes="(min-width: 768px) 16vw, 345px"
-            />
-          </ParallaxLayer>
+          <HeroCard
+            name="left-image"
+            slot={frames[0]}
+            aspect="portrait"
+            sizes="(min-width: 768px) 220px, 345px"
+            className="mx-auto mt-10 w-full max-w-[17.5rem] md:col-span-3 md:col-start-1 md:row-span-2 md:row-start-1 md:mx-0 md:mt-24 md:max-w-[13.75rem]"
+          />
         ) : null}
 
-        <div className="-mt-20 flex items-end justify-between gap-3 px-1 md:contents">
-          <div className="mb-3 flex items-center gap-3 md:absolute md:bottom-[3vw] md:left-[2vw] md:z-30 md:mb-0">
+        <div className="-mt-20 flex items-end justify-between gap-3 px-1 md:col-span-12 md:mt-0 md:contents">
+          <div className="mb-3 flex items-center gap-3 md:col-span-3 md:col-start-1 md:row-start-3 md:mb-0 md:self-end">
             <StarMark className="hero-desktop-only h-3.5 w-3.5" />
             <FloraLink />
           </div>
           {frames[2] ? (
-            <ParallaxLayer
-              layer="middle-image"
-              rate={HERO_PARALLAX.middle}
-              className="relative h-[192px] w-[150px] shrink-0 md:absolute md:left-1/2 md:top-[38vw] md:z-10 md:ml-[-6.51vw] md:h-[16.66vw] md:w-[13.02vw]"
+            <HeroCard
+              name="middle-image"
+              slot={frames[2]}
+              aspect="square"
+              sizes="(min-width: 768px) 176px, 150px"
+              className="relative w-[150px] shrink-0 md:col-span-3 md:col-start-6 md:row-start-2 md:mt-2 md:w-full md:max-w-[11rem] md:justify-self-center"
             >
               <RaysMark className="absolute -top-7 right-2 h-7 w-7 md:-top-9 md:left-0 md:right-auto md:h-8 md:w-8" />
-              <MediaFrame
-                slot={{ ...frames[2], aspect: "square" }}
-                fill
-                sizes="(min-width: 768px) 13vw, 150px"
-              />
-            </ParallaxLayer>
+            </HeroCard>
           ) : null}
         </div>
 
         {frames[1] ? (
-          <ParallaxLayer
-            layer="hero-auto-video"
-            rate={HERO_PARALLAX.video}
-            className="mt-6 h-[342px] w-[245px] max-w-full md:absolute md:right-[2vw] md:top-[6vw] md:z-[15] md:mt-0 md:h-[29.06vw] md:w-[20.78vw] md:max-w-none"
-          >
-            <MediaFrame
-              slot={{ ...frames[1], aspect: "portrait" }}
-              fill
-              sizes="(min-width: 768px) 21vw, 245px"
-            />
-          </ParallaxLayer>
+          <HeroCard
+            name="hero-auto-video"
+            slot={frames[1]}
+            aspect="portrait"
+            sizes="(min-width: 768px) 256px, 245px"
+            className="mt-6 w-[245px] max-w-full md:col-span-3 md:col-start-10 md:row-span-2 md:row-start-1 md:mt-0 md:w-full md:max-w-[16rem] md:justify-self-end"
+          />
         ) : null}
 
-        <Tagline className="mt-8 self-end text-right md:absolute md:bottom-[4vw] md:right-[2vw] md:z-30 md:mt-0" />
+        <Tagline className="mt-8 self-end text-right md:col-span-3 md:col-start-10 md:row-start-3 md:mt-0 md:self-end" />
       </HeroParallaxScene>
     </section>
   );
