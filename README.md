@@ -106,6 +106,8 @@ node scripts/generate-placeholders.mjs
 
 Vimeo: set `vimeoUrl` to a numeric ID, a public URL, or an unlisted `https://vimeo.com/123456789/abcdef` (hash) link. Leave it empty (or omit the field) to hide the player — visitors never see authoring instructions.
 
+`final.body` on a work is visitor-facing gallery copy. Leave it out until there is real text; do not put swap/README notes there.
+
 ## Add a work
 
 1. Duplicate an existing file in `content/works/` (for example `flora-in-frequency.json`).
