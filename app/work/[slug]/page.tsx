@@ -6,7 +6,7 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { VimeoEmbed } from "@/components/VimeoEmbed";
 import { WorkGrid } from "@/components/WorkCard";
 import { getRelatedWorks, getWork, getWorks } from "@/lib/content";
-import { parseVimeo } from "@/lib/vimeo";
+import { workVimeoUrls } from "@/lib/vimeo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -34,6 +34,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
   if (!work) notFound();
 
   const related = getRelatedWorks(work.slug);
+  const videos = workVimeoUrls(work);
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-16 md:px-10 md:py-20">
@@ -73,9 +74,17 @@ export default async function WorkDetailPage({ params }: PageProps) {
         ))}
       </section>
 
-      {parseVimeo(work.vimeoUrl) ? (
-        <section className="mt-16">
-          <VimeoEmbed url={work.vimeoUrl} title={work.title} />
+      {videos.length > 0 ? (
+        <section className="mt-16 space-y-6">
+          {videos.map((url, index) => (
+            <VimeoEmbed
+              key={url}
+              url={url}
+              title={
+                videos.length > 1 ? `${work.title} ${index + 1}` : work.title
+              }
+            />
+          ))}
         </section>
       ) : null}
 

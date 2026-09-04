@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { ArcMark, ArrowMark, RaysMark, StarMark } from "@/components/Marks";
 import { MediaFrame } from "@/components/MediaFrame";
+import { ParallaxFrame } from "@/components/ParallaxFrame";
 import { getSite } from "@/lib/site";
 import { getWork } from "@/lib/content";
+
+const parallax = {
+  left: 0.07,
+  right: 0.14,
+  center: 0.05,
+} as const;
 
 export function Hero() {
   const site = getSite();
@@ -23,8 +30,19 @@ export function Hero() {
             </p>
           </div>
           <div className="mt-10 grid grid-cols-3 gap-3">
-            {frames.map((slot) => (
-              <MediaFrame key={slot.alt} slot={{ ...slot, aspect: "square" }} />
+            {frames.map((slot, index) => (
+              <ParallaxFrame
+                key={slot.alt}
+                factor={
+                  index === 1
+                    ? parallax.right
+                    : index === 2
+                      ? parallax.center
+                      : parallax.left
+                }
+              >
+                <MediaFrame slot={{ ...slot, aspect: "square" }} />
+              </ParallaxFrame>
             ))}
           </div>
         </div>
@@ -33,7 +51,9 @@ export function Hero() {
           <div className="grid grid-cols-12 items-start gap-6">
             <div className="col-span-3 pt-24">
               {frames[0] ? (
-                <MediaFrame slot={{ ...frames[0], aspect: "portrait" }} />
+                <ParallaxFrame factor={parallax.left}>
+                  <MediaFrame slot={{ ...frames[0], aspect: "portrait" }} />
+                </ParallaxFrame>
               ) : null}
             </div>
             <div className="relative col-span-6 flex flex-col items-center px-2 pt-10 text-center">
@@ -48,13 +68,17 @@ export function Hero() {
             </div>
             <div className="col-span-3 pt-2">
               {frames[1] ? (
-                <MediaFrame slot={{ ...frames[1], aspect: "square" }} />
+                <ParallaxFrame factor={parallax.right}>
+                  <MediaFrame slot={{ ...frames[1], aspect: "portrait" }} />
+                </ParallaxFrame>
               ) : null}
             </div>
             <div className="relative col-span-4 col-start-5 mt-2">
               <ArcMark className="absolute -left-16 top-6 h-6 w-10" />
               {frames[2] ? (
-                <MediaFrame slot={{ ...frames[2], aspect: "square" }} />
+                <ParallaxFrame factor={parallax.center}>
+                  <MediaFrame slot={{ ...frames[2], aspect: "square" }} />
+                </ParallaxFrame>
               ) : null}
             </div>
           </div>

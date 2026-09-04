@@ -12,7 +12,11 @@
     "Exploring South Africa's rich botanical landscapes through the lens of advanced photogrammetry, this series offers a meditation on transience and beauty.",
     "3D point clouds are generated off of real-world flora in the environment, capturing a precise moment in the life of the flower. As the physical form of the flowers decay and return to earth, so too do the digital points scatter. The resulting artworks serve as a homage to the fleeting nature of life – a snapshot of transient existence."
   ],
-  "vimeoUrl": "https://vimeo.com/848178144/7d9b4b9d48",
+  "vimeoUrls": [
+    "https://vimeo.com/848178144/7d9b4b9d48",
+    "https://vimeo.com/848178196",
+    "https://vimeo.com/848178244"
+  ],
   "process": [],
   "final": {
     "title": "Gallery",

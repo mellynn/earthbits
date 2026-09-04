@@ -69,3 +69,24 @@ export function vimeoEmbedSrc(ref: VimeoRef | string) {
   const query = params.toString();
   return `https://player.vimeo.com/video/${parsed.id}${query ? `?${query}` : ""}`;
 }
+
+/**
+ * Collect playable Vimeo URLs for a work. `vimeoUrls` is the list;
+ * a legacy single `vimeoUrl` is included when not already present.
+ * Invalid / empty values are dropped so detail pages can hide the block.
+ */
+export function workVimeoUrls(work: {
+  vimeoUrl?: string;
+  vimeoUrls?: string[];
+}): string[] {
+  const raw = [...(work.vimeoUrls ?? []), ...(work.vimeoUrl ? [work.vimeoUrl] : [])];
+  const seen = new Set<string>();
+  const urls: string[] = [];
+  for (const value of raw) {
+    const ref = parseVimeo(value);
+    if (!ref || seen.has(ref.id)) continue;
+    seen.add(ref.id);
+    urls.push(value.trim());
+  }
+  return urls;
+}

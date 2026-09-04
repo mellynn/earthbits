@@ -13,7 +13,11 @@
     "Specifically, LiDAR scans and its inherent limitations (ie. the inability to capture fine details) becomes a strength, pushing the focus towards sweeping landscapes. Additionally, vibrant color contrasts that are taken from the scans are intensified through digital manipulation, giving birth to unique constellations. The artworks are altered to be abstract and mirror the ethereal qualities of clouds and shifting sunsets that are naturally occurring phenomenon found in weather patterns.",
     "The output challenges us to consider the potential of technology and flora to be collaborators in the art-making process, and to ponder the dialogues that such partnerships can generate."
   ],
-  "vimeoUrl": "https://vimeo.com/848177807",
+  "vimeoUrls": [
+    "https://vimeo.com/848177807",
+    "https://vimeo.com/846689058",
+    "https://vimeo.com/848178021"
+  ],
   "process": [],
   "final": {
     "title": "Gallery",
