@@ -33,11 +33,17 @@ function isVideoSrc(src: string) {
 export function MediaFrame({
   slot,
   className,
+  fill,
+  sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw",
 }: {
   slot: MediaSlot;
   className?: string;
+  /** Fill the parent box instead of using the slot aspect ratio. */
+  fill?: boolean;
+  sizes?: string;
 }) {
   const aspect = slot.aspect ?? "square";
+  const boxClass = fill ? "relative h-full w-full" : cn("relative w-full", aspectClass[aspect]);
   const videoSrc =
     slot.video ?? (slot.src && isVideoSrc(slot.src) ? slot.src : undefined);
   const poster =
@@ -46,14 +52,14 @@ export function MediaFrame({
 
   if (videoSrc) {
     return (
-      <figure className={cn("relative overflow-hidden bg-[#262323]", className)}>
-        <div className={cn("relative w-full", aspectClass[aspect])}>
+      <figure className={cn("relative h-full overflow-hidden bg-[#262323]", className)}>
+        <div className={boxClass}>
           {poster ? (
             <Image
               src={poster}
               alt={slot.alt}
               fill
-              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              sizes={sizes}
               className="object-cover"
             />
           ) : null}
@@ -90,8 +96,8 @@ export function MediaFrame({
   const svg = isSvgSrc(slot.src);
 
   return (
-    <figure className={cn("relative overflow-hidden bg-[#262323]", className)}>
-      <div className={cn("relative w-full", aspectClass[aspect])}>
+    <figure className={cn("relative h-full overflow-hidden bg-[#262323]", className)}>
+      <div className={boxClass}>
         {svg ? (
           // SVGs skip next/image optimization; local placeholders live in /public.
           // eslint-disable-next-line @next/next/no-img-element
@@ -105,7 +111,7 @@ export function MediaFrame({
             src={slot.src}
             alt={slot.alt}
             fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            sizes={sizes}
             className="object-cover"
           />
         )}

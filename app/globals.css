@@ -20,7 +20,7 @@ html {
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
   .hero-parallax-layer,
   .hero-parallax-media {
     will-change: transform;

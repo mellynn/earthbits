@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { DESKTOP_MQ, REDUCE_MOTION_MQ } from "@/lib/match-media";
 
 type ParallaxFrameProps = {
   /** Signed pixel travel of the frame across the hero scroll (negative = opposite). */
@@ -16,10 +17,15 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
+function reset(layer: HTMLElement, media: HTMLElement | null) {
+  layer.style.transform = "none";
+  if (media) media.style.transform = "none";
+}
+
 /**
- * Frame + inner-media parallax. Progress is based on the hero section's
- * position in the viewport so motion stays visible while the hero is on screen.
- * Honors prefers-reduced-motion (CSS + JS).
+ * Desktop-only frame + inner-media parallax. On small viewports this is a
+ * no-op: no scroll listeners are attached (matches earthbits.xyz).
+ * Also no-ops when prefers-reduced-motion is set.
  */
 export function ParallaxFrame({
   shift,
@@ -35,13 +41,14 @@ export function ParallaxFrame({
     const media = mediaRef.current;
     if (!layer) return;
 
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const desktop = window.matchMedia(DESKTOP_MQ);
+    const motion = window.matchMedia(REDUCE_MOTION_MQ);
     let frame = 0;
+    let listening = false;
 
     const update = () => {
-      if (motion.matches) {
-        layer.style.transform = "none";
-        if (media) media.style.transform = "none";
+      if (!desktop.matches || motion.matches) {
+        reset(layer, media);
         return;
       }
 
@@ -62,15 +69,35 @@ export function ParallaxFrame({
       frame = requestAnimationFrame(update);
     };
 
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    motion.addEventListener("change", update);
-    return () => {
+    const stop = () => {
+      if (!listening) return;
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      motion.removeEventListener("change", update);
+      listening = false;
       cancelAnimationFrame(frame);
+      reset(layer, media);
+    };
+
+    const start = () => {
+      if (listening) return;
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      listening = true;
+      update();
+    };
+
+    const syncMode = () => {
+      if (desktop.matches && !motion.matches) start();
+      else stop();
+    };
+
+    syncMode();
+    desktop.addEventListener("change", syncMode);
+    motion.addEventListener("change", syncMode);
+    return () => {
+      desktop.removeEventListener("change", syncMode);
+      motion.removeEventListener("change", syncMode);
+      stop();
     };
   }, [shift, inner]);
 

@@ -1,43 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useSyncExternalStore } from "react";
+import {
+  REDUCE_MOTION_MQ,
+  matchesMedia,
+  subscribeMatchMedia,
+} from "@/lib/match-media";
 
 type HeroVideoProps = {
   src: string;
   poster?: string;
 };
 
-/** Muted autoplay loop; pauses when the visitor prefers reduced motion. */
+/**
+ * Muted autoplay loop. When prefers-reduced-motion is set (or unknown on the
+ * server) the <video> is not mounted, so the mp4 is never requested.
+ */
 export function HeroVideo({ src, poster }: HeroVideoProps) {
-  const ref = useRef<HTMLVideoElement>(null);
+  const reduceMotion = useSyncExternalStore(
+    subscribeMatchMedia(REDUCE_MOTION_MQ),
+    () => matchesMedia(REDUCE_MOTION_MQ),
+    () => true,
+  );
 
-  useEffect(() => {
-    const video = ref.current;
-    if (!video) return;
-
-    video.muted = true;
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const sync = () => {
-      if (motion.matches) {
-        video.pause();
-        video.currentTime = 0;
-        return;
-      }
-      void video.play().catch(() => {
-        /* Autoplay can be blocked; poster remains visible. */
-      });
-    };
-
-    sync();
-    motion.addEventListener("change", sync);
-    return () => motion.removeEventListener("change", sync);
-  }, [src]);
+  if (reduceMotion) return null;
 
   return (
     <video
-      ref={ref}
-      className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+      className="absolute inset-0 h-full w-full object-cover"
       autoPlay
       muted
       loop
