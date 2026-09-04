@@ -39,18 +39,11 @@ export function Header({ brand }: { brand: string }) {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "text-[11px] uppercase tracking-[0.22em] transition-colors",
-                  active ? "text-paper" : "text-muted hover:text-paper",
+                  "text-[12px] font-medium uppercase tracking-[0.22em] transition-colors",
+                  active ? "text-accent" : "text-paper hover:text-accent",
                 )}
               >
-                <span
-                  className={cn(
-                    "pb-1",
-                    active && "border-b border-accent",
-                  )}
-                >
-                  {link.label}
-                </span>
+                {link.label}
               </Link>
             );
           })}
