@@ -28,36 +28,38 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative hidden min-h-[34rem] md:block">
-          <div className="absolute left-0 top-6 w-[22%]">
-            {frames[0] ? (
-              <MediaFrame slot={{ ...frames[0], aspect: "portrait" }} />
-            ) : null}
-          </div>
-          <div className="absolute right-0 top-0 w-[20%]">
-            {frames[1] ? (
-              <MediaFrame slot={{ ...frames[1], aspect: "square" }} />
-            ) : null}
-          </div>
-          <StarMark className="absolute left-[28%] top-16 h-4 w-4" />
-          <RaysMark className="absolute right-[26%] top-24 h-8 w-8" />
-          <ArcMark className="absolute bottom-28 left-[18%] h-6 w-10" />
-          <div className="flex min-h-[34rem] flex-col items-center justify-center text-center">
-            <h1 className="font-display text-8xl font-light tracking-tight text-paper lg:text-[7.5rem]">
-              {site.name}
-            </h1>
-            <p className="mt-5 text-[11px] uppercase tracking-[0.24em] text-muted">
-              {site.role}
-            </p>
-          </div>
-          <div className="absolute bottom-8 left-1/2 w-[26%] -translate-x-1/2">
-            {frames[2] ? (
-              <MediaFrame slot={{ ...frames[2], aspect: "square" }} />
-            ) : null}
+        <div className="relative hidden md:block">
+          <div className="grid grid-cols-12 items-start gap-6">
+            <div className="col-span-3 pt-24">
+              {frames[0] ? (
+                <MediaFrame slot={{ ...frames[0], aspect: "portrait" }} />
+              ) : null}
+            </div>
+            <div className="relative col-span-6 flex flex-col items-center px-2 pt-10 text-center">
+              <StarMark className="absolute left-2 top-2 h-4 w-4" />
+              <RaysMark className="absolute right-4 top-0 h-8 w-8" />
+              <h1 className="font-display text-7xl font-light tracking-tight text-paper lg:text-[7.25rem]">
+                {site.name}
+              </h1>
+              <p className="mt-5 text-[11px] uppercase tracking-[0.24em] text-muted">
+                {site.role}
+              </p>
+            </div>
+            <div className="col-span-3 pt-2">
+              {frames[1] ? (
+                <MediaFrame slot={{ ...frames[1], aspect: "square" }} />
+              ) : null}
+            </div>
+            <div className="relative col-span-4 col-start-5 mt-2">
+              <ArcMark className="absolute -left-16 top-6 h-6 w-10" />
+              {frames[2] ? (
+                <MediaFrame slot={{ ...frames[2], aspect: "square" }} />
+              ) : null}
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-6 md:mt-8 md:flex-row md:items-end md:justify-between">
+        <div className="mt-12 flex flex-col gap-6 md:mt-10 md:flex-row md:items-end md:justify-between">
           <Link
             href="/work/flora-in-frequency"
             className="inline-flex items-center gap-2 text-[12px] text-paper transition-colors hover:text-accent"
