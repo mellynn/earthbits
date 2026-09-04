@@ -9,9 +9,9 @@ import type { MediaSlot } from "@/lib/types";
 
 /** Signed px travel — large enough that frames obviously drift apart on scroll. */
 const parallax = {
-  left: { shift: 130, inner: -60 },
-  right: { shift: -150, inner: 70 },
-  center: { shift: 80, inner: -42 },
+  left: { shift: 120, inner: -72 },
+  right: { shift: -80, inner: 72 },
+  center: { shift: 64, inner: -48 },
 } as const;
 
 function FloraLink({ className }: { className?: string }) {
