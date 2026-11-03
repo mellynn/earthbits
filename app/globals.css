@@ -97,9 +97,9 @@ body::after {
 .hero-grid {
   width: 67.29vw;
   background-image:
-    linear-gradient(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.16)),
-    linear-gradient(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.16)),
-    linear-gradient(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.16));
+    linear-gradient(rgb(255 255 255 / 0.03), rgb(255 255 255 / 0.03)),
+    linear-gradient(rgb(255 255 255 / 0.03), rgb(255 255 255 / 0.03)),
+    linear-gradient(rgb(255 255 255 / 0.03), rgb(255 255 255 / 0.03));
   background-size: 1px 100%;
   background-position: 25% 0, 50% 0, 75% 0;
   background-repeat: no-repeat;
