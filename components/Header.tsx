@@ -7,9 +7,8 @@ import { cn } from "@/lib/cn";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/shop", label: "Shop" },
   { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
 ];
 
 function isActive(href: string, pathname: string) {
@@ -22,13 +21,13 @@ export function Header({ brand }: { brand: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/60 bg-ink/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-ink">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
         <Link
           href="/"
-          className="text-[11px] font-medium uppercase tracking-[0.28em] text-paper"
+          className="text-[13px] font-medium tracking-[0.14em] text-paper"
         >
-          {brand}
+          {brand.toLowerCase()}
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {links.map((link) => {

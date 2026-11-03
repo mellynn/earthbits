@@ -36,7 +36,7 @@ export function VimeoEmbed({ url, title }: VimeoEmbedProps) {
   if (!parsed) return null;
 
   return (
-    <div ref={boxRef} className="aspect-video overflow-hidden bg-[#262323]">
+    <div ref={boxRef} className="aspect-square overflow-hidden bg-[#262323]">
       {inView ? (
         <iframe
           src={vimeoEmbedSrc(parsed)}

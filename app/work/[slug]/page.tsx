@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProcessStepBlock } from "@/components/ProcessStepBlock";
 import { MediaFrame } from "@/components/MediaFrame";
-import { VimeoEmbed } from "@/components/VimeoEmbed";
+import { WorkVideos } from "@/components/WorkVideos";
 import { WorkGrid } from "@/components/WorkCard";
 import { getRelatedWorks, getWork, getWorks } from "@/lib/content";
 import { workVimeoUrls } from "@/lib/vimeo";
@@ -68,32 +68,20 @@ export default async function WorkDetailPage({ params }: PageProps) {
       <section className="mt-16 max-w-2xl">
         <h2 className="font-display text-4xl font-light">About</h2>
         {work.about.map((paragraph) => (
-          <p key={paragraph.slice(0, 32)} className="mt-5 text-[15px] leading-8 text-muted">
+          <p key={paragraph.slice(0, 32)} className="mt-5 text-[15px] leading-[1.5] text-muted">
             {paragraph}
           </p>
         ))}
       </section>
 
-      {videos.length > 0 ? (
-        <section className="mt-16 space-y-6">
-          {videos.map((url, index) => (
-            <VimeoEmbed
-              key={url}
-              url={url}
-              title={
-                videos.length > 1 ? `${work.title} ${index + 1}` : work.title
-              }
-            />
-          ))}
-        </section>
-      ) : null}
+      <WorkVideos urls={videos} title={work.title} />
 
       {work.processIntro || (work.process && work.process.length > 0) ? (
         <section className="mt-20 space-y-16">
           <div className="max-w-2xl">
             <h2 className="font-display text-4xl font-light">Process</h2>
             {work.processIntro ? (
-              <p className="mt-5 text-[15px] leading-8 text-muted">{work.processIntro}</p>
+              <p className="mt-5 text-[15px] leading-[1.5] text-muted">{work.processIntro}</p>
             ) : null}
           </div>
           {work.process?.map((step) => (
@@ -107,7 +95,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
           <div className="max-w-2xl">
             <h2 className="font-display text-4xl font-light">{work.final.title}</h2>
             {work.final.body ? (
-              <p className="mt-5 text-[15px] leading-8 text-muted">{work.final.body}</p>
+              <p className="mt-5 text-[15px] leading-[1.5] text-muted">{work.final.body}</p>
             ) : null}
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">

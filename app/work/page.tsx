@@ -13,7 +13,7 @@ export default function WorkIndexPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-20 md:px-10">
       <header className="mb-16 text-center">
-        <h1 className="font-display text-6xl font-light tracking-tight md:text-7xl">
+        <h1 className="font-display text-6xl font-light leading-[1.1] tracking-tight md:text-8xl">
           Work
         </h1>
         <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-muted">

@@ -17,7 +17,7 @@ export default function AboutPage() {
     <main className="mx-auto max-w-3xl px-6 py-20 md:px-10">
       <header className="text-center">
         <p className="text-[11px] uppercase tracking-[0.24em] text-accent">{site.role}</p>
-        <h1 className="mt-4 font-display text-6xl font-light tracking-tight md:text-7xl">
+        <h1 className="mt-4 font-display text-6xl font-light leading-[1.1] tracking-tight md:text-8xl">
           About
         </h1>
       </header>
