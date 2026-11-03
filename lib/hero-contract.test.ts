@@ -105,6 +105,7 @@ test("desktop hero wires text-vs-cards layers inside a 76vw wrap", () => {
   assert.match(src, /md:w-\[44\.79vw\]/);
   assert.match(src, /text-accent/);
   assert.match(src, /9\.2vw/);
+  assert.equal(src.includes("split(/(artist)/i)"), false);
   assert.equal(src.includes("left-[2vw]"), false);
   assert.equal(src.includes("right-[2vw]"), false);
 });
@@ -113,8 +114,11 @@ test("nav matches live site (no shop tab, no header rule)", () => {
   const src = read("components/Header.tsx");
   assert.equal(src.includes('href: "/shop"'), false);
   assert.equal(src.includes("border-b"), false);
-  assert.match(src, /href: "\/about"/);
+  assert.match(src, /href: "\/#home"/);
+  assert.match(src, /href: "\/#about"/);
   assert.match(src, /href: "\/work"/);
+  assert.equal(src.includes('href: "/about"'), false);
+  assert.match(src, /uppercase tracking-\[0\.28em\]/);
 });
 
 test("about copy uses live 15px / 1.5 line-height", () => {
@@ -136,7 +140,7 @@ test("case study videos are square, one then two-across", () => {
 test("hero column lines are faint white, not a gold 12-col grid", () => {
   const css = read("app/globals.css");
   assert.match(css, /67\.29vw/);
-  assert.match(css, /255 255 255/);
+  assert.match(css, /255 255 255 \/ 0\.03/);
   assert.equal(css.includes("232 191 150 / 0.2"), false);
 });
 

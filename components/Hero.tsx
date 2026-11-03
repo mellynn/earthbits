@@ -31,18 +31,9 @@ function FloraLink({ className }: { className?: string }) {
 }
 
 function RoleLine({ role, className }: { role: string; className?: string }) {
-  const parts = role.split(/(artist)/i);
   return (
     <p className={cn("text-[15px] leading-[1.35] text-paper md:text-[1.15rem]", className)}>
-      {parts.map((part, index) =>
-        /artist/i.test(part) ? (
-          <em key={`${part}-${index}`} className="font-display text-accent">
-            {part}
-          </em>
-        ) : (
-          <span key={`${part}-${index}`}>{part}</span>
-        ),
-      )}
+      {role}
     </p>
   );
 }
@@ -97,7 +88,7 @@ function HeroCard({
  */
 export function Hero({ name, role, frames }: HeroProps) {
   return (
-    <section data-hero-parallax className="relative">
+    <section id="home" data-hero-parallax className="relative scroll-mt-24">
       <div
         className="hero-grid pointer-events-none absolute inset-x-0 top-0 mx-auto h-full"
         aria-hidden="true"
