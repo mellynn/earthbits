@@ -16,7 +16,7 @@ export default function Home() {
       <Hero name={site.name} role={site.role} frames={flora?.hero ?? []} />
 
       <section className="mx-auto max-w-3xl px-6 py-24 md:px-10">
-        <h2 className="text-center font-display text-6xl font-light tracking-tight md:text-7xl">
+        <h2 className="text-center font-display text-6xl font-light leading-[1.1] tracking-tight md:text-8xl">
           About
         </h2>
         <AboutCopy className="mx-auto mt-10 max-w-2xl text-center" />
@@ -70,7 +70,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-6 pb-28 md:px-10">
         <header className="mb-14 text-center">
-          <h2 className="font-display text-6xl font-light tracking-tight md:text-7xl">
+          <h2 className="font-display text-6xl font-light leading-[1.1] tracking-tight md:text-8xl">
             Work
           </h2>
           <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-muted">

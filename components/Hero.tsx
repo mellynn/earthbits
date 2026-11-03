@@ -33,7 +33,7 @@ function FloraLink({ className }: { className?: string }) {
 function RoleLine({ role, className }: { role: string; className?: string }) {
   const parts = role.split(/(artist)/i);
   return (
-    <p className={cn("text-[15px] leading-snug text-paper md:text-[1.15rem]", className)}>
+    <p className={cn("text-[15px] leading-[1.35] text-paper md:text-[1.15rem]", className)}>
       {parts.map((part, index) =>
         /artist/i.test(part) ? (
           <em key={`${part}-${index}`} className="font-display text-accent">
@@ -49,7 +49,7 @@ function RoleLine({ role, className }: { role: string; className?: string }) {
 
 function Tagline({ className }: { className?: string }) {
   return (
-    <p className={cn("max-w-xs text-sm leading-7 text-muted", className)}>
+    <p className={cn("max-w-xs text-sm leading-[1.55] text-muted", className)}>
       Exploring the intersection of{" "}
       <span className="font-medium text-paper">nature</span> and{" "}
       <span className="font-medium text-paper">technology</span>
@@ -99,20 +99,20 @@ export function Hero({ name, role, frames }: HeroProps) {
   return (
     <section data-hero-parallax className="relative">
       <div
-        className="hero-grid pointer-events-none absolute inset-x-0 top-0 mx-auto h-full w-full md:w-[76vw]"
+        className="hero-grid pointer-events-none absolute inset-x-0 top-0 mx-auto h-full"
         aria-hidden="true"
       />
       <HeroParallaxScene className="relative mx-auto flex w-full flex-col overflow-x-clip px-6 pb-16 pt-12 md:block md:w-[76vw] md:min-h-[42rem] md:overflow-visible md:px-0 md:pb-28 md:pt-10">
         <ParallaxLayer
           layer="hero-block"
           rate={HERO_PARALLAX.block}
-          className="relative z-20 text-center md:mx-auto md:w-[44.79vw] md:pt-8"
+          className="relative z-20 text-center md:mx-auto md:w-[44.79vw] md:pt-[6vw]"
         >
           <StarMark className="hero-desktop-only absolute left-0 top-6 h-4 w-4" />
-          <h1 className="font-display text-[3.15rem] font-light leading-[0.9] tracking-tight text-paper md:text-[clamp(3.5rem,7.2vw,6.75rem)]">
+          <h1 className="font-display text-[3.15rem] font-light leading-[0.9] tracking-tight text-paper md:text-[clamp(5rem,9.2vw,8rem)]">
             {name}
           </h1>
-          <RoleLine role={role} className="mt-5 md:mx-auto md:mt-6 md:max-w-[17.4vw]" />
+          <RoleLine role={role} className="mt-3 md:mx-auto md:mt-4 md:max-w-[17.4vw]" />
         </ParallaxLayer>
 
         {frames[0] ? (

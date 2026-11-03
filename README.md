@@ -35,7 +35,7 @@ npm start
 | `/about` | Full bio, exhibits, contact |
 | `/shop` | Works for sale (data-driven; empty / coming soon until listings are added) |
 
-Nav: Home, Work, Shop, About.
+Nav: Home, About, Work. `/shop` stays as a URL; it is not in the header.
 
 ## Swap real media
 

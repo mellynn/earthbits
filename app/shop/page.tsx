@@ -16,7 +16,7 @@ export default function ShopPage() {
         <h1 className="font-display text-6xl font-light tracking-tight md:text-7xl">
           {shop.headline}
         </h1>
-        <p className="mt-6 text-[15px] leading-8 text-muted">{shop.lede}</p>
+        <p className="mt-6 text-[15px] leading-[1.5] text-muted">{shop.lede}</p>
       </header>
       <ShopCatalog />
     </main>

@@ -3,7 +3,7 @@
 @theme inline {
   --color-ink: #1f1d1d;
   --color-paper: #f3eee8;
-  --color-muted: #b3aaa3;
+  --color-muted: #999999;
   --color-accent: #e8bf96;
   --color-line: #3d3835;
   --font-display: var(--font-cormorant), "Iowan Old Style", Palatino, Georgia, serif;
@@ -93,13 +93,15 @@ body::after {
   top: 1rem;
 }
 
+/* Live earthbits.xyz header-section: three faint white column lines, fading down. */
 .hero-grid {
-  background-image: repeating-linear-gradient(
-    to right,
-    transparent 0,
-    transparent calc(8.333% - 1px),
-    rgb(232 191 150 / 0.2) calc(8.333% - 1px),
-    rgb(232 191 150 / 0.2) 8.333%
-  );
-  mask-image: linear-gradient(black 55%, transparent 100%);
+  width: 67.29vw;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.16)),
+    linear-gradient(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.16)),
+    linear-gradient(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.16));
+  background-size: 1px 100%;
+  background-position: 25% 0, 50% 0, 75% 0;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(black 0%, black 48%, transparent 100%);
 }
