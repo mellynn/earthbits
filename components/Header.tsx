@@ -11,6 +11,17 @@ const links = [
   { href: "/work", label: "Work" },
 ];
 
+function scrollToHash(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const header = document.querySelector("header");
+  const headerH =
+    header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+  const gap = id === "about" ? 112 : 8;
+  const top = window.scrollY + el.getBoundingClientRect().top - headerH - gap;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+}
+
 function isActive(href: string, pathname: string, hash: string) {
   if (href === "/#home") {
     return pathname === "/" && (hash === "" || hash === "#" || hash === "#home");
@@ -40,11 +51,19 @@ export function Header({ brand }: { brand: string }) {
     if (pathname !== "/") return;
     const id = window.location.hash.replace(/^#/, "");
     if (!id) return;
-    const frame = requestAnimationFrame(() => {
-      document.getElementById(id)?.scrollIntoView();
-    });
+    const frame = requestAnimationFrame(() => scrollToHash(id));
     return () => cancelAnimationFrame(frame);
-  }, [pathname]);
+  }, [pathname, hash]);
+
+  function onSectionClick(href: string, event: { preventDefault: () => void }) {
+    setOpen(false);
+    if (pathname !== "/" || !href.startsWith("/#")) return;
+    event.preventDefault();
+    const id = href.slice(2);
+    window.history.pushState(null, "", href);
+    setHash(`#${id}`);
+    scrollToHash(id);
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-ink">
@@ -52,6 +71,7 @@ export function Header({ brand }: { brand: string }) {
         <Link
           href="/#home"
           className="text-[13px] font-medium uppercase tracking-[0.28em] text-paper"
+          onClick={(event) => onSectionClick("/#home", event)}
         >
           {brand}
         </Link>
@@ -67,7 +87,7 @@ export function Header({ brand }: { brand: string }) {
                   "text-[12px] font-medium uppercase tracking-[0.22em] transition-colors",
                   active ? "text-accent" : "text-paper hover:text-accent",
                 )}
-                onClick={() => setOpen(false)}
+                onClick={(event) => onSectionClick(link.href, event)}
               >
                 {link.label}
               </Link>
@@ -101,7 +121,7 @@ export function Header({ brand }: { brand: string }) {
                   "text-sm uppercase tracking-[0.2em]",
                   active ? "text-accent" : "text-paper",
                 )}
-                onClick={() => setOpen(false)}
+                onClick={(event) => onSectionClick(link.href, event)}
               >
                 {link.label}
               </Link>
