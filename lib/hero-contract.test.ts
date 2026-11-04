@@ -121,6 +121,15 @@ test("nav matches live site (no shop tab, no header rule)", () => {
   assert.match(src, /uppercase tracking-\[0\.28em\]/);
 });
 
+test("homepage sections use extra vertical space on desktop", () => {
+  const page = read("app/page.tsx");
+  const hero = read("components/Hero.tsx");
+  assert.match(page, /id="about"[^>]*md:py-40/);
+  assert.match(page, /md:py-40/);
+  assert.equal((page.match(/md:py-40/g) || []).length, 2);
+  assert.match(hero, /md:pb-40/);
+});
+
 test("about copy uses live 15px / 1.5 line-height", () => {
   const src = read("components/AboutCopy.tsx");
   assert.match(src, /text-\[15px\] leading-\[1\.5\]/);
