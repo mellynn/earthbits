@@ -93,7 +93,7 @@ export function Hero({ name, role, frames }: HeroProps) {
         className="hero-grid pointer-events-none absolute inset-x-0 top-0 mx-auto h-full"
         aria-hidden="true"
       />
-      <HeroParallaxScene className="relative mx-auto flex w-full flex-col overflow-x-clip px-6 pb-16 pt-12 md:block md:w-[76vw] md:min-h-[42rem] md:overflow-visible md:px-0 md:pb-28 md:pt-10">
+      <HeroParallaxScene className="relative mx-auto flex w-full flex-col overflow-x-clip px-6 pb-16 pt-12 md:block md:w-[76vw] md:min-h-[42rem] md:overflow-visible md:px-0 md:pb-40 md:pt-10">
         <ParallaxLayer
           layer="hero-block"
           rate={HERO_PARALLAX.block}

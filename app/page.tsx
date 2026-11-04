@@ -15,7 +15,7 @@ export default function Home() {
     <main>
       <Hero name={site.name} role={site.role} frames={flora?.hero ?? []} />
 
-      <section id="about" className="mx-auto max-w-3xl scroll-mt-24 px-6 py-24 md:px-10">
+      <section id="about" className="mx-auto max-w-3xl scroll-mt-24 px-6 py-24 md:px-10 md:py-40">
         <h2 className="text-center font-display text-6xl font-light leading-[1.1] tracking-tight md:text-8xl">
           About
         </h2>
@@ -68,7 +68,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-28 md:px-10">
+      <section className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-40">
         <header className="mb-14 text-center">
           <h2 className="font-display text-6xl font-light leading-[1.1] tracking-tight md:text-8xl">
             Work
