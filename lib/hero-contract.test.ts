@@ -183,6 +183,13 @@ test("center hero still is not the leftover wireframe filename", () => {
   assert.match(flora, /Glass flower in a ceramic vase/);
 });
 
+test("lollygag permanently redirects to Manifold", () => {
+  const src = read("next.config.ts");
+  assert.match(src, /source: "\/lollygag"/);
+  assert.match(src, /destination: "https:\/\/earthbits\.manifold\.xyz"/);
+  assert.match(src, /permanent: true/);
+});
+
 test("scene CSS uses perspective and preserve-3d", () => {
   const css = read("app/globals.css");
   assert.match(css, /perspective:\s*1000px/);

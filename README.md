@@ -34,6 +34,7 @@ npm start
 | `/work/[slug]` | Project detail (about, optional Vimeo, process, gallery) |
 | `/about` | Full bio, exhibits, contact |
 | `/shop` | Works for sale (data-driven; empty / coming soon until listings are added) |
+| `/lollygag` | Permanent redirect to https://earthbits.manifold.xyz |
 
 Nav: Home and About jump to sections on `/`; Work goes to `/work`. `/shop` stays as a URL; it is not in the header.
 
