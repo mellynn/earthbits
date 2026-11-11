@@ -36,6 +36,20 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: remoteImagePatterns,
   },
+  async redirects() {
+    return [
+      {
+        source: "/lollygag",
+        destination: "https://earthbits.manifold.xyz",
+        permanent: true,
+      },
+      {
+        source: "/lollygag/",
+        destination: "https://earthbits.manifold.xyz",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
